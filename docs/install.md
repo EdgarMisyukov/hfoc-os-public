@@ -27,3 +27,5 @@ These reservations describe the layout itself. On media with 512-byte logical se
 For dual boot, prepare contiguous aligned unallocated space on the GPT disk and retain its single existing EFI System Partition. Before confirming, check that the installer recognizes the existing system and offers a preserving plan. The boot menu can show the existing system when discovery recognizes a supported UEFI entry.
 
 After installation, boot the installed disk and follow the [first-boot and management guide](operate.md).
+
+See the [detailed installation and dual-boot guide](install-detail.md) for preparing an installer, reviewing the disk plan and verifying the result.

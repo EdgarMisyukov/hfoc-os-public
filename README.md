@@ -7,6 +7,7 @@ HFOC OS is an x86-64 operating system for network appliances. Version 1.0.0 prov
 - [Release and hardware support](docs/release-1.0.0.md)
 - [Boot and installation options](docs/install.md)
 - [Configuration, SSH and diagnostics](docs/operate.md)
+- [Building the boot image](docs/build.md)
 - [Licensing and contributing](docs/licensing.md)
 
 This branch contains the first public guides for version 1.0.0. The corresponding source snapshot and downloadable images are being prepared for this repository.
