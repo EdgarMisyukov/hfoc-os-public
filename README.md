@@ -13,3 +13,5 @@ This branch contains the first public guides for version 1.0.0. The correspondin
 The release was built from `933f7cd739a9437e86638fbfe30a738e22f2e9aa`. The verified Toshiba L875 build reports `933f7cd739a9`.
 
 HFOC-owned code and documentation are offered under [GNU AGPL v3 only](LICENSE) or a separate written commercial license. Bundled components retain their upstream licenses.
+
+Project contact [mis@hfoc.ru](mailto:mis@hfoc.ru).
