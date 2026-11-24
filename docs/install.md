@@ -2,7 +2,16 @@
 
 [Home](../README.md) · English · [Русский](install.ru.md)
 
-HFOC OS starts from a BIOS or UEFI boot image on an x86-64 machine. Start in a virtual machine to check the console and networking with an isolated disk image. The public source and image package is still being prepared.
+HFOC OS starts from a BIOS or UEFI boot image on an x86-64 machine. The public source and image package is still being prepared.
+
+## Try the release ISO in QEMU
+
+Run this from the directory containing the verified ISO. It opens the generic boot image without attaching a hard disk. Disk installation uses separately generated installer media with a disk and layout declaration.
+
+```sh
+qemu-system-x86_64 -machine q35 -m 512M -cpu max,-apic \
+  -cdrom hfoc-os-1.0.0.iso -serial stdio -no-reboot
+```
 
 ## Select an installation mode
 
@@ -13,8 +22,8 @@ HFOC OS starts from a BIOS or UEFI boot image on an x86-64 machine. Start in a v
 | Preserve an existing system | Installs in unallocated space on supported GPT/UEFI systems and uses the existing EFI System Partition | 128 MiB |
 | Update | Updates the installed HFOC system and preserves the owner workspace and settings | Uses the existing layout |
 
-These reservations describe the layout itself. A disk also needs space for its partition metadata and alignment. The installer checks the declared disk identity and layout before writing. Back up data and confirm the exact target before a whole-disk install.
+These reservations describe the layout itself. On media with 512-byte logical sectors, the whole-disk minimum including metadata and alignment is 331,810 sectors in UEFI mode and 333,858 in legacy BIOS mode. The installer checks the declared disk identity and layout before writing. Back up data and confirm the exact target before a whole-disk install.
 
-For dual boot, prepare unallocated space and retain the existing EFI System Partition. Check that the installer recognizes the existing system and offers a preserving plan before you confirm. The boot menu can show the existing system when discovery recognizes its supported UEFI entry.
+For dual boot, prepare contiguous aligned unallocated space on the GPT disk and retain its single existing EFI System Partition. Before confirming, check that the installer recognizes the existing system and offers a preserving plan. The boot menu can show the existing system when discovery recognizes a supported UEFI entry.
 
 After installation, boot the installed disk and follow the [first-boot and management guide](operate.md).
