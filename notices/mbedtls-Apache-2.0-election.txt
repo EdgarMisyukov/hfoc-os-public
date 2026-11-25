@@ -1,0 +1,26 @@
+HFOC Appliance Platform - mbedTLS license election
+SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-HFOC-Commercial
+
+Component: mbedTLS
+Release:   mbedtls-3.6.7
+Upstream:  Apache-2.0 OR GPL-2.0-or-later
+
+mbedTLS is distributed in this appliance under the Apache License, Version 2.0.
+
+Upstream offers the component under the disjunctive expression
+"Apache-2.0 OR GPL-2.0-or-later". HFOC elects Apache-2.0 and this appliance is
+distributed under that election; it is not distributed under GPL-2.0-or-later
+and it is not distributed under both. The election is recorded for the mbedtls
+dependency in release/hfoc-license-inventory.txt (`license=Apache-2.0`,
+`license_offered=Apache-2.0 OR GPL-2.0-or-later`, `election=Apache-2.0`), and
+the release SBOM publishes Apache-2.0 as the concluded license of the
+component.
+
+The full Apache-2.0 license text ships in this same license payload as
+third_party/mbedtls/LICENSE, together with the full GPL-2.0 text, so a
+recipient can verify both branches of the offered expression. The vendored
+mbedTLS source is pinned file by file in third_party/LOCKS.sha256.
+
+mbedTLS is a third-party component: it is excluded from the HFOC dual-license
+grant (AGPL-3.0-only OR LicenseRef-HFOC-Commercial), which covers HFOC-owned
+material only.

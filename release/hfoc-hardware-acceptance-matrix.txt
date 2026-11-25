@@ -1,0 +1,250 @@
+hfoc_hardware_acceptance_matrix_version=1
+target_release_id=HFOC-APPLIANCE-V1
+acceptance_device=/dev/sda
+declared_model=HFOC Example SATA*
+declared_serial=DEADBEEF00000001
+declared_root=/dev/nvme0n1p2
+source_matrix=release/hfoc-production-end-to-end-acceptance.txt
+stage_count=26
+
+# ITEM-381 hardware acceptance plan. Every product-path stage of the
+# production end-to-end matrix is observed on the acceptance host against the
+# declared disk behind the identity guard, with the software counterpart proof
+# that already covers the same stage in CI; the three hardware-only stages
+# (dual-boot uninstall, power cycle and factory reset) have no CI equivalent
+# and are observed on hardware only. The matrix is a plan: the machine-readable
+# report of a run carries the per-stage results.
+
+# MEDIA_DIGEST: the USB/ISO digest is verified on the acceptance host before anything is written
+stage_1_id=MEDIA_DIGEST
+stage_1_name=media-artifact-digest
+stage_1_owner=ITEM-347
+stage_1_kind=both
+stage_1_software_target=test-release-artifact-host
+stage_1_software_marker=Release artifact manifest verification: OK
+stage_1_hardware_observation=the USB/ISO digest is verified on the acceptance host before anything is written
+
+# INSTALLER: the authorised installer medium boots to the product install flow (candidate disk, media-token confirmation, published layout) and writes the declared layout to the acceptance disk
+stage_2_id=INSTALLER
+stage_2_name=production-installer
+stage_2_owner=ITEM-361
+stage_2_kind=both
+stage_2_software_target=test-production-installer-qemu
+stage_2_software_marker=QEMU production-installer test: OK
+stage_2_hardware_observation=the authorised installer medium boots to the product install flow, publishes the candidate disk, the media-token confirmation and the layout decision ([PRODUCTION-INSTALL] layout mode=… reason=… declared=…), and writes the layout the declaration names to the disk whose serial the medium names: the declared whole-disk mode writes the [INSTALLER-LAYOUT] footprint, and without a declaration a target disk that still carries a system is preserved ([INSTALLER-PRESERVE] plan …, [INSTALLER-BOOT-MENU] …) with every foreign entry and file left byte for byte and the installed set staged into the reused ESP; ITEM-399: the kernel it stages is the medium's product appliance kernel and never the installer that is running, and the configuration it stages states the management scope the medium declared (HFOC-INSTALL-MANAGEMENT=) ITEM-410: these records are quoted from the appliance's own boot log on the acceptance disk - `python3 scripts/hfoc-esp-read.py /dev/sda --bootlog` (docs/hfoc-installed-boot.md) - instead of from a photograph of the screen, so the stage evidence survives a boot that scrolled or refused before the console was up
+
+# STORAGE_STATE: the appliance boots from the acceptance disk and reloads the committed state
+stage_3_id=STORAGE_STATE
+stage_3_name=production-storage-and-state
+stage_3_owner=ITEM-360
+stage_3_kind=both
+stage_3_software_target=test-production-storage-boot-qemu
+stage_3_software_marker=Production storage boot QEMU test: OK
+stage_3_hardware_observation=the appliance boots from the acceptance disk the INSTALLER stage wrote and reloads the committed state; the first boot after the install is the observation, not a re-install, and the product install-flow proof, which boots the disk the flow itself installed (test-production-installer-qemu, marker "QEMU installed-disk boot test: OK") boots exactly that image with no installer media and requires storage=READY; ITEM-399: that boot is the product appliance kernel, so the observation must carry no [PRODUCTION-INSTALLER] record at all
+
+# FIRST_BOOT: the first-boot wizard completes and the provisioning survives a reboot
+stage_4_id=FIRST_BOOT
+stage_4_name=first-boot-persistence
+stage_4_owner=ITEM-363
+stage_4_kind=both
+stage_4_software_target=test-production-first-boot-qemu
+stage_4_software_marker=QEMU production first-boot test: OK
+stage_4_hardware_observation=the first-boot wizard completes on the installed disk and the provisioning survives a reboot; the installed-system boot path itself is the one the installed-disk boot proof covers (test-production-installer-qemu, marker "QEMU installed-disk boot test: OK"), which reaches the ordinary [APPLIANCE-BOOT] readiness record with storage=READY from the ESP the installer staged ITEM-410: these records are quoted from the appliance's own boot log on the acceptance disk - `python3 scripts/hfoc-esp-read.py /dev/sda --bootlog` (docs/hfoc-installed-boot.md) - instead of from a photograph of the screen, so the stage evidence survives a boot that scrolled or refused before the console was up
+
+# NETWORK_LINK: the appliance brings up the physical NIC and publishes MAC and link state
+stage_5_id=NETWORK_LINK
+stage_5_name=production-nic-and-link
+stage_5_owner=ITEM-362A
+stage_5_kind=both
+stage_5_software_target=test-production-network-qemu
+stage_5_software_marker=QEMU production network test: OK
+stage_5_hardware_observation=the appliance brings up the physical NIC and publishes MAC and link state; ITEM-399 makes the record self-describing: [PRODUCTION-NET] carries pci=10EC:8168 rev=… and, when the Realtek backend identified the part, xid=0x… family=RTL8168-EXTENDED|RTL8168-CLASSIC|UNKNOWN, so the run states which silicon it drove (the laptop to support is an RTL8168E, xid=0x2C8 family=RTL8168-EXTENDED; the acceptance host is an RTL8168H) ITEM-410: these records are quoted from the appliance's own boot log on the acceptance disk - `python3 scripts/hfoc-esp-read.py /dev/sda --bootlog` (docs/hfoc-installed-boot.md) - instead of from a photograph of the screen, so the stage evidence survives a boot that scrolled or refused before the console was up
+
+# DHCP_DNS: the appliance leases an address and resolves a name on the site network
+stage_6_id=DHCP_DNS
+stage_6_name=dhcp-and-dns-wire
+stage_6_owner=ITEM-362B
+stage_6_kind=both
+stage_6_software_target=test-production-dhcp-dns-qemu
+stage_6_software_marker=QEMU production DHCP/DNS test: OK
+stage_6_hardware_observation=the appliance leases an address and resolves a name on the site network ITEM-410: these records are quoted from the appliance's own boot log on the acceptance disk - `python3 scripts/hfoc-esp-read.py /dev/sda --bootlog` (docs/hfoc-installed-boot.md) - instead of from a photograph of the screen, so the stage evidence survives a boot that scrolled or refused before the console was up
+
+# HTTPS_SERVICE: the management listener answers or honestly reports its AWAITING state
+stage_7_id=HTTPS_SERVICE
+stage_7_name=service-and-https-activation
+stage_7_owner=ITEM-364
+stage_7_kind=both
+stage_7_software_target=test-production-service-https-qemu
+stage_7_software_marker=QEMU production service activation test: OK
+stage_7_hardware_observation=the management listener answers GET / over TLS 1.3, or honestly reports AWAITING_ENTROPY / DEGRADED with the reason in its [PRODUCTION-SERVING] record
+
+# AUTH: an unauthenticated request is denied and an authenticated request succeeds
+stage_8_id=AUTH
+stage_8_name=request-authentication
+stage_8_owner=ITEM-365
+stage_8_kind=both
+stage_8_software_target=test-appliance-production-auth-host
+stage_8_software_marker=Appliance production auth host tests: ALL OK
+stage_8_hardware_observation=an unauthenticated request is denied and an authenticated request succeeds: the local console reports [ADMIN-ENROLLMENT] state=UNPROVISIONED on a fresh appliance, CREDENTIALS asks for the current password and the new login and password pair and publishes credentials changed with state=ACTIVE gate=PUBLISHED, LOGIN prints one Authorization: Bearer token, an anonymous GET /api/v1/system answers 503 before the account is set and 401 after it, the bearer GET answers 200, an unknown bearer is refused 401, and the password itself never appears in the recorded evidence (ITEM-401, ITEM-506) ITEM-410: these records are quoted from the appliance's own boot log on the acceptance disk - `python3 scripts/hfoc-esp-read.py /dev/sda --bootlog` (docs/hfoc-installed-boot.md) - instead of from a photograph of the screen, so the stage evidence survives a boot that scrolled or refused before the console was up
+
+# MANAGEMENT: the read-only management plane serves the system state over the wire
+stage_9_id=MANAGEMENT
+stage_9_name=read-only-management-plane
+stage_9_owner=ITEM-366
+stage_9_kind=both
+stage_9_software_target=test-appliance-production-management-plane-host
+stage_9_software_marker=Appliance production management plane host tests: ALL OK
+stage_9_hardware_observation=the read-only management plane serves the system state over the wire; the scope it serves under is the one the installed configuration declares (ITEM-399): [PRODUCTION-MGMT-BIND] scope=LOCAL_ONLY|MANAGEMENT_INTERFACE source=boot-declaration, with the scope taken from the HFOC-INSTALL-MANAGEMENT= the install medium declared rather than from the kernel's default; the authenticated bodies /api/v1/system, /api/v1/network, /api/v1/network/status, /api/v1/service and /api/v1/health answer 200 with the session the local console issued (ITEM-401), while the anonymous requests stay refused ITEM-410: these records are quoted from the appliance's own boot log on the acceptance disk - `python3 scripts/hfoc-esp-read.py /dev/sda --bootlog` (docs/hfoc-installed-boot.md) - instead of from a photograph of the screen, so the stage evidence survives a boot that scrolled or refused before the console was up
+
+# MUTATION: a two-phase mutation is confirmed, applied and audited
+stage_10_id=MUTATION
+stage_10_name=network-service-mutations
+stage_10_owner=ITEM-367A
+stage_10_kind=both
+stage_10_software_target=test-appliance-production-mutation-plane-host
+stage_10_software_marker=Appliance production mutation plane host tests: ALL OK
+stage_10_hardware_observation=a two-phase mutation is confirmed, applied and audited
+
+# UPDATE: a signed update is admitted and a downgrade is refused
+stage_11_id=UPDATE
+stage_11_name=signed-update-operations
+stage_11_owner=ITEM-367B
+stage_11_kind=both
+stage_11_software_target=test-appliance-production-update-plane-host
+stage_11_software_marker=Appliance production update plane host tests: ALL OK
+stage_11_hardware_observation=a signed update is admitted and a downgrade is refused
+
+# REBOOT_PERSISTENCE: configuration survives a full power cycle without re-running the wizard
+stage_12_id=REBOOT_PERSISTENCE
+stage_12_name=reboot-persistence
+stage_12_owner=ITEM-335
+stage_12_kind=both
+stage_12_software_target=test-persistent-config-reboot-acceptance-qemu
+stage_12_software_marker=Persistent configuration reboot acceptance: OK
+stage_12_hardware_observation=configuration survives a full power cycle without re-running the wizard
+
+# RECOVERY: the recovery transaction completes and preserves the recovery metadata
+stage_13_id=RECOVERY
+stage_13_name=recovery-and-factory-reset
+stage_13_owner=ITEM-368
+stage_13_kind=both
+stage_13_software_target=test-production-recovery-reset-qemu
+stage_13_software_marker=Production recovery reset QEMU test: OK
+stage_13_hardware_observation=the recovery transaction completes and preserves the recovery metadata
+
+# RECOVERY_EXECUTOR: an operator-requested factory reset completes behind the confirmation gate
+stage_14_id=RECOVERY_EXECUTOR
+stage_14_name=recovery-executor-contract
+stage_14_owner=ITEM-368
+stage_14_kind=both
+stage_14_software_target=test-appliance-production-recovery-executor-host
+stage_14_software_marker=Appliance production recovery executor host tests: ALL OK
+stage_14_hardware_observation=an operator-requested factory reset completes behind the confirmation gate
+
+# SIGNED_MEDIA: a tampered image is refused before the first write
+stage_15_id=SIGNED_MEDIA
+stage_15_name=signed-media-and-installer-hardening
+stage_15_owner=ITEM-371
+stage_15_kind=both
+stage_15_software_target=test-installer-hardening-host
+stage_15_software_marker=Installer media and hardening host tests: ALL OK
+stage_15_hardware_observation=a tampered image is refused before the first write
+
+# SIGNED_BOOT: an unattested image refuses to boot and an attested image boots
+stage_16_id=SIGNED_BOOT
+stage_16_name=signed-boot-and-attestation
+stage_16_owner=ITEM-372
+stage_16_kind=both
+stage_16_software_target=test-production-boot-chain-qemu
+stage_16_software_marker=QEMU production boot chain test: OK
+stage_16_hardware_observation=an unattested image refuses to boot and an attested image boots
+
+# STORAGE_ENCRYPTION: a wrong passphrase fails closed and the recovery key unlocks the state
+stage_17_id=STORAGE_ENCRYPTION
+stage_17_name=storage-encryption-and-key-custody
+stage_17_owner=ITEM-373
+stage_17_kind=both
+stage_17_software_target=test-state-encryption-host
+stage_17_software_marker=Appliance state encryption host tests: ALL OK
+stage_17_hardware_observation=a wrong passphrase fails closed and the recovery key unlocks the state
+
+# TIME_SYNC: the clock synchronizes over SNTP once the link is up
+stage_18_id=TIME_SYNC
+stage_18_name=network-modes-and-time-sync
+stage_18_owner=ITEM-374
+stage_18_kind=both
+stage_18_software_target=test-appliance-network-mode-host
+stage_18_software_marker=Appliance network mode host tests: ALL OK
+stage_18_hardware_observation=the clock synchronizes over SNTP once the link is up
+
+# TLS_LIFECYCLE: the management listener serves the imported certificate with the frozen policy
+stage_19_id=TLS_LIFECYCLE
+stage_19_name=tls-lifecycle-and-rotation
+stage_19_owner=ITEM-375
+stage_19_kind=both
+stage_19_software_target=test-appliance-management-tls-host
+stage_19_software_marker=Appliance management TLS host tests: ALL OK
+stage_19_hardware_observation=the management listener serves the imported certificate with the frozen policy
+
+# UPDATE_ROLLBACK: a failed update rolls back after the boot-success budget expires
+stage_20_id=UPDATE_ROLLBACK
+stage_20_name=update-atomicity-and-rollback
+stage_20_owner=ITEM-376
+stage_20_kind=both
+stage_20_software_target=test-appliance-update-lifecycle-host
+stage_20_software_marker=Appliance update lifecycle host tests: ALL OK
+stage_20_hardware_observation=a failed update rolls back after the boot-success budget expires
+
+# AUDIT_EXPORT: the audit chain exports and verifies on the appliance
+stage_21_id=AUDIT_EXPORT
+stage_21_name=audit-integrity-and-export
+stage_21_owner=ITEM-377
+stage_21_kind=both
+stage_21_software_target=test-appliance-audit-chain-host
+stage_21_software_marker=Appliance audit chain host tests: ALL OK
+stage_21_hardware_observation=the audit chain exports and verifies on the appliance
+
+# SUPPORT_BUNDLE: the support bundle is sealed, exported and verified with the seal key
+stage_22_id=SUPPORT_BUNDLE
+stage_22_name=support-bundle-and-break-glass
+stage_22_owner=ITEM-378
+stage_22_kind=both
+stage_22_software_target=test-appliance-production-support-host
+stage_22_software_marker=Appliance production support host tests: ALL OK
+stage_22_hardware_observation=the support bundle is sealed, exported and verified with the seal key
+
+# LICENSE_PAYLOAD: the installed image ships the complete licence payload and its manifest matches the declared dependency inventory
+stage_23_id=LICENSE_PAYLOAD
+stage_23_name=license-payload
+stage_23_owner=ITEM-382
+stage_23_kind=both
+stage_23_software_target=test-license-payload-host
+stage_23_software_marker=License payload host test: OK
+stage_23_hardware_observation=the licence payload shipped with the installed image carries every declared dependency notice and its manifest digest matches
+
+# DUAL_BOOT_UNINSTALL: uninstall restores the previous boot entry and the previous OS boots
+stage_24_id=DUAL_BOOT_UNINSTALL
+stage_24_name=dual-boot-uninstall
+stage_24_owner=ITEM-381
+stage_24_kind=hardware
+stage_24_software_target=test-installer-dual-boot-host
+stage_24_software_marker=Installer dual boot host test: OK
+stage_24_hardware_observation=uninstall restores the previous boot entry and the previous OS boots
+
+# POWER_CYCLE: full power removal and restore leaves the appliance consistent
+stage_25_id=POWER_CYCLE
+stage_25_name=power-cycle
+stage_25_owner=ITEM-381
+stage_25_kind=hardware
+stage_25_software_target=test-power-cycle-continuity-drill-qemu
+stage_25_software_marker=QEMU power-cycle continuity drill test: OK
+stage_25_hardware_observation=full power removal and restore leaves the appliance consistent
+
+# FACTORY_RESET: factory reset with dry-run clears state and the appliance boots clean
+stage_26_id=FACTORY_RESET
+stage_26_name=factory-reset
+stage_26_owner=ITEM-381
+stage_26_kind=hardware
+stage_26_software_target=test-production-recovery-reset-qemu
+stage_26_software_marker=Production recovery reset QEMU test: OK
+stage_26_hardware_observation=factory reset with dry-run clears state and the appliance boots clean

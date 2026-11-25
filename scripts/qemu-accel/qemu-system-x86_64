@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# ITEM-442: the PATH shim the QEMU phases put in front of the real emulator.
+#
+# scripts/hfoc-qemu-accel.sh resolves the accelerator once per phase and
+# exports HFOC_QEMU_ACCEL_ARGS; every proof starts qemu-system-x86_64 by name,
+# so a shim earlier on PATH is what gives all of them the same accelerator
+# without touching a hundred proof scripts.  The shim:
+#
+#   * prepends the resolved arguments (none when nothing was resolved, so a
+#     caller that did not opt in runs exactly what it wrote);
+#   * leaves a command line that already carries -accel or -enable-kvm
+#     untouched, because that proof has decided for itself;
+#   * execs the real binary, so signals, exit status and the process tree are
+#     the emulator's own.
+#
+# HFOC_QEMU_ACCEL_REAL points at the real emulator and exists for the host
+# drill; unset, it is the binary the package installed.
+set -Eeuo pipefail
+
+real=${HFOC_QEMU_ACCEL_REAL:-/usr/bin/qemu-system-x86_64}
+args=${HFOC_QEMU_ACCEL_ARGS:-}
+
+for argument in "$@"; do
+    case $argument in
+    -accel | -accel=* | -enable-kvm)
+        exec "$real" "$@"
+        ;;
+    esac
+done
+
+# Word splitting is the point: the value is an argument list this file's
+# resolver composed, not a single argument.
+# shellcheck disable=SC2086
+exec "$real" $args "$@"

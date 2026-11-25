@@ -1,0 +1,921 @@
+kernel/src/appliance_admin_credentials_prompt.c	APPLIANCE_ADMIN_CREDENTIALS_PROMPT_BAD_STATE
+kernel/src/appliance_admin_credentials_prompt.c	APPLIANCE_ADMIN_CREDENTIALS_PROMPT_BUFFER_TOO_SMALL
+kernel/src/appliance_admin_credentials_prompt.c	APPLIANCE_ADMIN_CREDENTIALS_PROMPT_MISSING_TRANSLATION
+kernel/src/appliance_admin_credentials_prompt.c	APPLIANCE_ADMIN_CREDENTIALS_PROMPT_NULL
+kernel/src/appliance_admin_credentials_prompt.c	APPLIANCE_ADMIN_CREDENTIALS_PROMPT_OK
+kernel/src/appliance_admin_credentials_prompt.c	CANCELLED
+kernel/src/appliance_admin_credentials_prompt.c	CHANGE
+kernel/src/appliance_admin_credentials_prompt.c	CONFIRM
+kernel/src/appliance_admin_credentials_prompt.c	CREDENTIAL TRANSLATION MISSING
+kernel/src/appliance_admin_credentials_prompt.c	CURRENT
+kernel/src/appliance_admin_credentials_prompt.c	IDLE
+kernel/src/appliance_admin_credentials_prompt.c	LOGIN
+kernel/src/appliance_admin_credentials_prompt.c	LOGIN_NAME
+kernel/src/appliance_admin_credentials_prompt.c	LOGIN_PASSWORD
+kernel/src/appliance_admin_credentials_prompt.c	NEW_LOGIN
+kernel/src/appliance_admin_credentials_prompt.c	NEW_PASSWORD
+kernel/src/appliance_admin_credentials_prompt.c	NONE
+kernel/src/appliance_admin_credentials_prompt.c	PROMPT
+kernel/src/appliance_admin_credentials_prompt.c	SET
+kernel/src/appliance_admin_credentials_prompt.c	SUBMIT_CHANGE
+kernel/src/appliance_admin_credentials_prompt.c	SUBMIT_LOGIN
+kernel/src/appliance_admin_credentials_prompt.c	SUBMIT_SET
+kernel/src/appliance_admin_credentials_prompt.c	credential.cancelled
+kernel/src/appliance_admin_credentials_prompt.c	credential.prompt.confirm
+kernel/src/appliance_admin_credentials_prompt.c	credential.prompt.current
+kernel/src/appliance_admin_credentials_prompt.c	credential.prompt.login
+kernel/src/appliance_admin_credentials_prompt.c	credential.prompt.new_login
+kernel/src/appliance_admin_credentials_prompt.c	credential.prompt.new_password
+kernel/src/appliance_admin_credentials_prompt.c	credential.prompt.password
+kernel/src/appliance_admin_credentials_prompt.c	credential.refusal.current_empty
+kernel/src/appliance_admin_credentials_prompt.c	credential.refusal.login_policy
+kernel/src/appliance_admin_credentials_prompt.c	credential.refusal.mismatch
+kernel/src/appliance_admin_credentials_prompt.c	credential.refusal.password_empty
+kernel/src/appliance_admin_credentials_prompt.c	credential.refusal.password_policy
+kernel/src/appliance_admin_credentials_prompt.c	credential.refusal.too_long
+kernel/src/appliance_admin_credentials_prompt.c	credential.refusal.weak_password
+kernel/src/appliance_boot_console.c	 MiB
+kernel/src/appliance_boot_console.c	--------------
+kernel/src/appliance_boot_console.c	0
+kernel/src/appliance_boot_console.c	APPLIANCE_BOOT_CONSOLE_ACTION_DIAGNOSTICS
+kernel/src/appliance_boot_console.c	APPLIANCE_BOOT_CONSOLE_ACTION_NETWORK
+kernel/src/appliance_boot_console.c	APPLIANCE_BOOT_CONSOLE_ACTION_NONE
+kernel/src/appliance_boot_console.c	APPLIANCE_BOOT_CONSOLE_ACTION_REBOOT
+kernel/src/appliance_boot_console.c	APPLIANCE_BOOT_CONSOLE_ACTION_RECOVERY
+kernel/src/appliance_boot_console.c	APPLIANCE_BOOT_CONSOLE_ACTION_SHUTDOWN
+kernel/src/appliance_boot_console.c	APPLIANCE_BOOT_CONSOLE_ACTION_STATUS
+kernel/src/appliance_boot_console.c	APPLIANCE_BOOT_CONSOLE_BAD_HARDWARE
+kernel/src/appliance_boot_console.c	APPLIANCE_BOOT_CONSOLE_BAD_IDENTITY
+kernel/src/appliance_boot_console.c	APPLIANCE_BOOT_CONSOLE_BAD_MANAGEMENT_URL
+kernel/src/appliance_boot_console.c	APPLIANCE_BOOT_CONSOLE_BAD_STATE
+kernel/src/appliance_boot_console.c	APPLIANCE_BOOT_CONSOLE_BAD_STATE_VALUE
+kernel/src/appliance_boot_console.c	APPLIANCE_BOOT_CONSOLE_BAD_VERSION
+kernel/src/appliance_boot_console.c	APPLIANCE_BOOT_CONSOLE_NULL
+kernel/src/appliance_boot_console.c	APPLIANCE_BOOT_CONSOLE_OK
+kernel/src/appliance_boot_console.c	APPLIANCE_BOOT_CONSOLE_OVERFLOW
+kernel/src/appliance_boot_console.c	HFOC Appliance
+kernel/src/appliance_boot_console.c	OK
+kernel/src/appliance_boot_console.c	UNAVAILABLE
+kernel/src/appliance_boot_console.c	\n
+kernel/src/appliance_boot_console.c	diag
+kernel/src/appliance_boot_console.c	diagnostics
+kernel/src/appliance_boot_console.c	https://
+kernel/src/appliance_boot_console.c	menu.bootconsole.cpu
+kernel/src/appliance_boot_console.c	menu.bootconsole.entry.diagnostics
+kernel/src/appliance_boot_console.c	menu.bootconsole.entry.network
+kernel/src/appliance_boot_console.c	menu.bootconsole.entry.reboot
+kernel/src/appliance_boot_console.c	menu.bootconsole.entry.recovery
+kernel/src/appliance_boot_console.c	menu.bootconsole.entry.shutdown
+kernel/src/appliance_boot_console.c	menu.bootconsole.entry.status
+kernel/src/appliance_boot_console.c	menu.bootconsole.health
+kernel/src/appliance_boot_console.c	menu.bootconsole.hostname
+kernel/src/appliance_boot_console.c	menu.bootconsole.local_admin
+kernel/src/appliance_boot_console.c	menu.bootconsole.management
+kernel/src/appliance_boot_console.c	menu.bootconsole.memory
+kernel/src/appliance_boot_console.c	menu.bootconsole.network
+kernel/src/appliance_boot_console.c	menu.bootconsole.services
+kernel/src/appliance_boot_console.c	menu.bootconsole.storage
+kernel/src/appliance_boot_console.c	network
+kernel/src/appliance_boot_console.c	reboot
+kernel/src/appliance_boot_console.c	recovery
+kernel/src/appliance_boot_console.c	shutdown
+kernel/src/appliance_boot_console.c	status
+kernel/src/appliance_management_web_ui.c	 
+kernel/src/appliance_management_web_ui.c	 (
+kernel/src/appliance_management_web_ui.c	 - 
+kernel/src/appliance_management_web_ui.c	 <a href="
+kernel/src/appliance_management_web_ui.c	 <form method="post" action="
+kernel/src/appliance_management_web_ui.c	 <input name="address"></label>\n<label>
+kernel/src/appliance_management_web_ui.c	 <input name="backend" placeholder="192.0.2.10">
+kernel/src/appliance_management_web_ui.c	 <input name="current" type="password"></label></p>\n
+kernel/src/appliance_management_web_ui.c	 <input name="dns"></label>\n
+kernel/src/appliance_management_web_ui.c	 <input name="gateway"></label>\n<label>
+kernel/src/appliance_management_web_ui.c	 <input name="hostname"></label>
+kernel/src/appliance_management_web_ui.c	 <input name="language"></label>
+kernel/src/appliance_management_web_ui.c	 <input name="login"></label></p>\n<p><label>
+kernel/src/appliance_management_web_ui.c	 <input name="name"></label></p>\n
+kernel/src/appliance_management_web_ui.c	 <input name="name"></label></p>\n<p><label>
+kernel/src/appliance_management_web_ui.c	 <input name="password" type="password"></label></p>\n
+kernel/src/appliance_management_web_ui.c	 <input name="port" placeholder="443"></label></p>\n
+kernel/src/appliance_management_web_ui.c	 <input name="prefix"></label>\n<label>
+kernel/src/appliance_management_web_ui.c	 <input name="repeat" type="password"></label></p>\n
+kernel/src/appliance_management_web_ui.c	 <input name="token" inputmode="numeric"></label><br>
+kernel/src/appliance_management_web_ui.c	 <select name="mode"><option value="dhcp">DHCP</option>
+kernel/src/appliance_management_web_ui.c	 <select name="tls"><option value="off">off</option>
+kernel/src/appliance_management_web_ui.c	 [
+kernel/src/appliance_management_web_ui.c	 applies=
+kernel/src/appliance_management_web_ui.c	 key=
+kernel/src/appliance_management_web_ui.c	 placeholder="
+kernel/src/appliance_management_web_ui.c	 value="1">
+kernel/src/appliance_management_web_ui.c	" style="display:inline">
+kernel/src/appliance_management_web_ui.c	">
+kernel/src/appliance_management_web_ui.c	"></textarea></label></p>\n
+kernel/src/appliance_management_web_ui.c	"></textarea></label></p>\n<p><label>
+kernel/src/appliance_management_web_ui.c	"><input type="hidden" name="action" value="close">
+kernel/src/appliance_management_web_ui.c	"><input type="hidden" name="action" value="disable">
+kernel/src/appliance_management_web_ui.c	"><input type="hidden" name="action" value="enable">
+kernel/src/appliance_management_web_ui.c	"><input type="hidden" name="action" value="request">
+kernel/src/appliance_management_web_ui.c	">\n
+kernel/src/appliance_management_web_ui.c	&#
+kernel/src/appliance_management_web_ui.c	&amp;
+kernel/src/appliance_management_web_ui.c	&gt;
+kernel/src/appliance_management_web_ui.c	&lt;
+kernel/src/appliance_management_web_ui.c	':\n            appliance_management_web_ui_buffer_text(&buffer, 
+kernel/src/appliance_management_web_ui.c	);\n            break;\n        case (unsigned char)''':\n            appliance_management_web_ui_buffer_text(&buffer, 
+kernel/src/appliance_management_web_ui.c	);\n            break;\n        default:\n            if (value < 0x20U || value == 0x7FU) {\n                appliance_management_web_ui_buffer_hex_decimal(\n                    &buffer, value);\n            } else {\n                appliance_management_web_ui_buffer_byte(\n                    &buffer, (char)value);\n            }\n            break;\n        }\n    }\n    *output_length = buffer.length;\n    if (buffer.overflow) {\n        return APPLIANCE_MANAGEMENT_WEB_UI_OVERFLOW;\n    }\n    return APPLIANCE_MANAGEMENT_WEB_UI_OK;\n}\n\n/*\n * ITEM-509 increment 8: escape a bounded span byte by byte into the page\n * buffer.  A catalog body is rendered line by line without being copied into a\n * temporary, and the one-byte escape buffer is large enough for the longest\n * expansion the escaper produces (`&#NN;`).\n */\nstatic void appliance_management_web_ui_buffer_escaped_span(\n    struct appliance_management_web_ui_buffer *buffer,\n    const char *text,\n    size_t length)\n{\n    size_t index;\n\n    for (index = 0U; index < length; ++index) {\n        const char single[2] = { text[index], '\x00' };\n        char escaped[7];\n        size_t escaped_length = 0U;\n\n        if (appliance_management_web_ui_escape(\n                single,\n                1U,\n                escaped,\n                sizeof(escaped),\n                &escaped_length) != APPLIANCE_MANAGEMENT_WEB_UI_OK) {\n            buffer->overflow = true;\n            return;\n        }\n        appliance_management_web_ui_buffer_text(buffer, escaped);\n    }\n}\n\n/*\n * Escape one bounded dynamic value directly into the page buffer. A null\n * value is published as the literal `unavailable`: a section is never hidden\n * and a missing value is never silently dropped.  `bound` is the caller's\n * value bound; the generic sections use the renderer's own\n * `APPLIANCE_MANAGEMENT_WEB_UI_VALUE_MAX`, while a block that renders several\n * values on a nearly full page (the Dashboard's ACME state, ITEM-508\n * increment 32) names a smaller bound so the page cannot overflow.  The\n * bounded helper itself is the ITEM-504 one below; it is declared here so the\n * generic value renderer can share it.\n */\nstatic void appliance_management_web_ui_buffer_value_bounded(\n    struct appliance_management_web_ui_buffer *buffer,\n    const char *value,\n    size_t max_characters);\n\nstatic void appliance_management_web_ui_buffer_value(\n    struct appliance_management_web_ui_buffer *buffer,\n    const char *value)\n{\n    appliance_management_web_ui_buffer_value_bounded(\n        buffer, value, (size_t)APPLIANCE_MANAGEMENT_WEB_UI_VALUE_MAX);\n}\n\n/*\n * ITEM-509 increment 10: the section names are catalog keys, not literals.\n *\n * Until this increment the renderer carried its own `section_names[]` table\n * next to the catalog's `panel.section.*` entries - two sources of truth for\n * the same thirteen words, the ITEM-499 failure mode in a different place.\n * The table now holds only the keys; `section_string()`, the navigation and the\n * page heading all read the one catalog through them, so the English document\n * is byte-for-byte what it was (the English values are the old literals) and\n * the Russian document cannot name a section differently from the navigation.\n */\nstatic const char *const\nappliance_management_web_ui_section_keys[] = {\n    
+kernel/src/appliance_management_web_ui.c	)</p>\n
+kernel/src/appliance_management_web_ui.c	, 
+kernel/src/appliance_management_web_ui.c	, applies=
+kernel/src/appliance_management_web_ui.c	,\n    
+kernel/src/appliance_management_web_ui.c	,\n    /* ITEM-504: the first section whose page configures instead of reads. */\n    
+kernel/src/appliance_management_web_ui.c	,\n    /* ITEM-506 increment 6: the one account's credential change. */\n    
+kernel/src/appliance_management_web_ui.c	,\n    /* ITEM-507 increment 5: the name -> certificate/key declarations. */\n    
+kernel/src/appliance_management_web_ui.c	,\n    /* ITEM-509 increment 8: the help index; topic pages are `/panel/help/<id>`. */\n    APPLIANCE_MANAGEMENT_WEB_UI_HELP_PATH,\n};\n\nstatic const char *const\nappliance_management_web_ui_section_owners[] = {\n    
+kernel/src/appliance_management_web_ui.c	,\n    /*\n     * ITEM-504: routing publishes no read-side owner path.  The applied table\n     * is the section's own state and the page lists it; the mutation target\n     * `/api/v1/system/routes` is a write surface, not a read owner.\n     */\n    NULL,\n    /*\n     * ITEM-506 increment 6: the account publishes no read-side owner path.\n     * The stored login is the section's own state and the page reads it; the\n     * mutation target `/api/v1/system/account` is a write surface, not a read\n     * owner.\n     */\n    NULL,\n    /*\n     * ITEM-507 increment 5: the certificates page publishes no read-side\n     * owner path.  The two tables are the section's own state and the page\n     * reads them; the mutation target `/api/v1/system/certificate/name` is a\n     * write surface, not a read owner.\n     */\n    NULL,\n    /*\n     * ITEM-509 increment 8: the help content is compiled into this machine,\n     * so the page is its own read owner and no management API path exists for\n     * it; `write_state` says so instead of naming a missing owner.\n     */\n    NULL,\n};\n\nstatic const enum appliance_management_web_ui_section_state\nappliance_management_web_ui_section_states[] = {\n    APPLIANCE_MANAGEMENT_WEB_UI_SECTION_STATE_OWNED,\n    APPLIANCE_MANAGEMENT_WEB_UI_SECTION_STATE_OWNED,\n    APPLIANCE_MANAGEMENT_WEB_UI_SECTION_STATE_OWNED,\n    APPLIANCE_MANAGEMENT_WEB_UI_SECTION_STATE_UNAVAILABLE,\n    APPLIANCE_MANAGEMENT_WEB_UI_SECTION_STATE_OWNED,\n    APPLIANCE_MANAGEMENT_WEB_UI_SECTION_STATE_UNAVAILABLE,\n    APPLIANCE_MANAGEMENT_WEB_UI_SECTION_STATE_UNAVAILABLE,\n    APPLIANCE_MANAGEMENT_WEB_UI_SECTION_STATE_DEGRADED,\n    APPLIANCE_MANAGEMENT_WEB_UI_SECTION_STATE_DEGRADED,\n    APPLIANCE_MANAGEMENT_WEB_UI_SECTION_STATE_DEGRADED,\n    APPLIANCE_MANAGEMENT_WEB_UI_SECTION_STATE_DEGRADED,\n    APPLIANCE_MANAGEMENT_WEB_UI_SECTION_STATE_DEGRADED,\n    /*\n     * ITEM-509 increment 8: Help is OWNED even though it names no management\n     * API owner, because the catalog it renders is compiled into this build;\n     * `write_state` explains that instead of claiming a missing read side.\n     */\n    APPLIANCE_MANAGEMENT_WEB_UI_SECTION_STATE_OWNED,\n};\n\nstatic const bool appliance_management_web_ui_confirmable_table[] = {\n    false,\n    true,\n    true,\n    false,\n    /* ITEM-505 increment 3: System confirms the hostname mutation. */\n    true,\n    /* ITEM-503: Security confirms the BYO certificate import. */\n    true,\n    false,\n    true,\n    true,\n    /* ITEM-504: Routing confirms the route-table mutation. */\n    true,\n    /* ITEM-506 increment 6: Account confirms the credential change. */\n    true,\n    /* ITEM-507 increment 5: Certificates confirms the name mutation. */\n    true,\n    /* ITEM-509 increment 8: Help has no mutation surface. */\n    false,\n};\n\nstatic const uint32_t appliance_management_web_ui_page_budgets[] = {\n    APPLIANCE_MANAGEMENT_WEB_UI_BUDGET_LOGIN,\n    APPLIANCE_MANAGEMENT_WEB_UI_BUDGET_DASHBOARD,\n    APPLIANCE_MANAGEMENT_WEB_UI_BUDGET_NETWORK,\n    APPLIANCE_MANAGEMENT_WEB_UI_BUDGET_SERVICES,\n    APPLIANCE_MANAGEMENT_WEB_UI_BUDGET_STORAGE,\n    APPLIANCE_MANAGEMENT_WEB_UI_BUDGET_SYSTEM,\n    APPLIANCE_MANAGEMENT_WEB_UI_BUDGET_SECURITY,\n    APPLIANCE_MANAGEMENT_WEB_UI_BUDGET_DIAGNOSTICS,\n    APPLIANCE_MANAGEMENT_WEB_UI_BUDGET_UPDATES,\n    APPLIANCE_MANAGEMENT_WEB_UI_BUDGET_RECOVERY,\n    APPLIANCE_MANAGEMENT_WEB_UI_BUDGET_ROUTING,\n    APPLIANCE_MANAGEMENT_WEB_UI_BUDGET_ACCOUNT,\n    APPLIANCE_MANAGEMENT_WEB_UI_BUDGET_CERTIFICATES,\n    /* ITEM-509 increment 8: the help index and its topic pages. */\n    APPLIANCE_MANAGEMENT_WEB_UI_BUDGET_HELP,\n    APPLIANCE_MANAGEMENT_WEB_UI_BUDGET_LICENSES,\n    APPLIANCE_MANAGEMENT_WEB_UI_BUDGET_ACME,\n    /* ITEM-516: the management-gate page. */\n    APPLIANCE_MANAGEMENT_WEB_UI_BUDGET_GATE,\n};\n\nstatic const char appliance_management_web_ui_login_body[] =\n    
+kernel/src/appliance_management_web_ui.c	,\n    /*\n     * ITEM-509 increment 8: the help index, added to the catalog in\n     * increment 10 when the navigation started reading labels from it.\n     */\n    
+kernel/src/appliance_management_web_ui.c	,\n    NULL,\n    
+kernel/src/appliance_management_web_ui.c	,\n    NULL,\n    NULL,\n    
+kernel/src/appliance_management_web_ui.c	,\n};\n\n/*\n * ITEM-513: the two nav buttons that switch the browser's language.  The\n * labels are catalog entries like every other word the panel prints; the\n * values are the catalog's own codes (`en`/`ru`), written by the renderer\n * through `appliance_language_code()`, so the button a browser submits and the\n * value the cookie reader accepts cannot drift.\n */\nstatic const char *const\nappliance_management_web_ui_language_keys[] = {\n    
+kernel/src/appliance_management_web_ui.c	,\n};\n\nstatic const char *const\nappliance_management_web_ui_section_paths[] = {\n    
+kernel/src/appliance_management_web_ui.c	.</p>\n
+kernel/src/appliance_management_web_ui.c	.</p>\n<p>
+kernel/src/appliance_management_web_ui.c	.notice{color:#a00;font-weight:700}
+kernel/src/appliance_management_web_ui.c	.state{font-weight:700}
+kernel/src/appliance_management_web_ui.c	/
+kernel/src/appliance_management_web_ui.c	/panel/security
+kernel/src/appliance_management_web_ui.c	: 
+kernel/src/appliance_management_web_ui.c	;
+kernel/src/appliance_management_web_ui.c	<!doctype html>\n
+kernel/src/appliance_management_web_ui.c	</a>
+kernel/src/appliance_management_web_ui.c	</a></p>\n
+kernel/src/appliance_management_web_ui.c	</body>\n
+kernel/src/appliance_management_web_ui.c	</button>
+kernel/src/appliance_management_web_ui.c	</button></form>\n
+kernel/src/appliance_management_web_ui.c	</button></p>\n
+kernel/src/appliance_management_web_ui.c	</button><button 
+kernel/src/appliance_management_web_ui.c	</button><button name="cancel" value="1">
+kernel/src/appliance_management_web_ui.c	</button><button type="submit" 
+kernel/src/appliance_management_web_ui.c	</button>\n
+kernel/src/appliance_management_web_ui.c	</code>
+kernel/src/appliance_management_web_ui.c	</code> source=
+kernel/src/appliance_management_web_ui.c	</code>.</p>
+kernel/src/appliance_management_web_ui.c	</code></p>
+kernel/src/appliance_management_web_ui.c	</code></p>\n
+kernel/src/appliance_management_web_ui.c	</code></p>\n<p>
+kernel/src/appliance_management_web_ui.c	</code><br>
+kernel/src/appliance_management_web_ui.c	</dd>\n</dl>\n<p>
+kernel/src/appliance_management_web_ui.c	</dd>\n<dt>
+kernel/src/appliance_management_web_ui.c	</dt><dd>
+kernel/src/appliance_management_web_ui.c	</footer>\n
+kernel/src/appliance_management_web_ui.c	</form>
+kernel/src/appliance_management_web_ui.c	</form>\n
+kernel/src/appliance_management_web_ui.c	</h2>
+kernel/src/appliance_management_web_ui.c	</h2><p class="state">
+kernel/src/appliance_management_web_ui.c	</h2>\n
+kernel/src/appliance_management_web_ui.c	</h2>\n<p class="state">
+kernel/src/appliance_management_web_ui.c	</h3><p>
+kernel/src/appliance_management_web_ui.c	</h3>\n
+kernel/src/appliance_management_web_ui.c	</h3>\n<p>
+kernel/src/appliance_management_web_ui.c	</h3>\n<pre>
+kernel/src/appliance_management_web_ui.c	</head>\n
+kernel/src/appliance_management_web_ui.c	</html>\n
+kernel/src/appliance_management_web_ui.c	</label></p>\n<button>
+kernel/src/appliance_management_web_ui.c	</label></p>\n<p><label>
+kernel/src/appliance_management_web_ui.c	</li>\n
+kernel/src/appliance_management_web_ui.c	</main>\n
+kernel/src/appliance_management_web_ui.c	</main>\n<footer>
+kernel/src/appliance_management_web_ui.c	</nav>\n
+kernel/src/appliance_management_web_ui.c	</option></select></label>\n
+kernel/src/appliance_management_web_ui.c	</p>
+kernel/src/appliance_management_web_ui.c	</p><p>
+kernel/src/appliance_management_web_ui.c	</p>\n
+kernel/src/appliance_management_web_ui.c	</p>\n<h3>
+kernel/src/appliance_management_web_ui.c	</p>\n<p>
+kernel/src/appliance_management_web_ui.c	</p>\n<p><a href="
+kernel/src/appliance_management_web_ui.c	</p>\n<pre>
+kernel/src/appliance_management_web_ui.c	</p>\n<ul>\n
+kernel/src/appliance_management_web_ui.c	</pre>\n
+kernel/src/appliance_management_web_ui.c	</small></p>\n
+kernel/src/appliance_management_web_ui.c	</style>\n
+kernel/src/appliance_management_web_ui.c	</table>
+kernel/src/appliance_management_web_ui.c	</td></tr>
+kernel/src/appliance_management_web_ui.c	</td><td>
+kernel/src/appliance_management_web_ui.c	</th></tr>
+kernel/src/appliance_management_web_ui.c	</th><th>
+kernel/src/appliance_management_web_ui.c	</ul>\n
+kernel/src/appliance_management_web_ui.c	<a href="
+kernel/src/appliance_management_web_ui.c	<body>\n
+kernel/src/appliance_management_web_ui.c	<br><textarea name="certificate" rows="3" cols="40"
+kernel/src/appliance_management_web_ui.c	<br><textarea name="certificate"></textarea></label></p>\n
+kernel/src/appliance_management_web_ui.c	<br><textarea name="chain" rows="2" cols="40"
+kernel/src/appliance_management_web_ui.c	<br><textarea name="key" rows="3" cols="40"
+kernel/src/appliance_management_web_ui.c	<br><textarea name="key"></textarea></label></p>\n
+kernel/src/appliance_management_web_ui.c	<br>\n
+kernel/src/appliance_management_web_ui.c	<button name="cancel" value="1">
+kernel/src/appliance_management_web_ui.c	<button name="confirm" value="1">
+kernel/src/appliance_management_web_ui.c	<button name="language" value="
+kernel/src/appliance_management_web_ui.c	<button type="submit" name="cancel" value="1">
+kernel/src/appliance_management_web_ui.c	<button type="submit" name="confirm" value="1">
+kernel/src/appliance_management_web_ui.c	<button type="submit">
+kernel/src/appliance_management_web_ui.c	<button>
+kernel/src/appliance_management_web_ui.c	<code>
+kernel/src/appliance_management_web_ui.c	<code>/api/v1</code></p>\n
+kernel/src/appliance_management_web_ui.c	<code>Authorization: Bearer</code>
+kernel/src/appliance_management_web_ui.c	<code>HttpOnly</code>
+kernel/src/appliance_management_web_ui.c	<code>SameSite=Strict</code>
+kernel/src/appliance_management_web_ui.c	<code>Secure</code>
+kernel/src/appliance_management_web_ui.c	<code>credentials</code>
+kernel/src/appliance_management_web_ui.c	<code>help</code>
+kernel/src/appliance_management_web_ui.c	<dl>\n<dt>
+kernel/src/appliance_management_web_ui.c	<footer>HFOC Appliance management panel</footer>\n
+kernel/src/appliance_management_web_ui.c	<form method="post" action="
+kernel/src/appliance_management_web_ui.c	<form method="post" action="/">\n
+kernel/src/appliance_management_web_ui.c	<form method="post" action="/panel/account">\n
+kernel/src/appliance_management_web_ui.c	<form method="post" action="/panel/certificates">
+kernel/src/appliance_management_web_ui.c	<form method="post" action="/panel/logout">\n
+kernel/src/appliance_management_web_ui.c	<form method="post" action="/panel/network">\n
+kernel/src/appliance_management_web_ui.c	<form method="post" action="/panel/routing">\n
+kernel/src/appliance_management_web_ui.c	<form method="post" action="/panel/security">\n
+kernel/src/appliance_management_web_ui.c	<form method="post" action="/panel/system">\n
+kernel/src/appliance_management_web_ui.c	<h1>HFOC Appliance</h1>\n
+kernel/src/appliance_management_web_ui.c	<h2>Management sign-in</h2>\n
+kernel/src/appliance_management_web_ui.c	<h3>
+kernel/src/appliance_management_web_ui.c	<head>\n
+kernel/src/appliance_management_web_ui.c	<html lang="
+kernel/src/appliance_management_web_ui.c	<input type="hidden" name="action" value="add">
+kernel/src/appliance_management_web_ui.c	<input type="hidden" name="action" value="delete">
+kernel/src/appliance_management_web_ui.c	<input type="hidden" name="action" value="import">
+kernel/src/appliance_management_web_ui.c	<input type="hidden" name="action" value="remove">
+kernel/src/appliance_management_web_ui.c	<input type="password" name="password" 
+kernel/src/appliance_management_web_ui.c	<input type="text" name="username" 
+kernel/src/appliance_management_web_ui.c	<label>
+kernel/src/appliance_management_web_ui.c	<li>
+kernel/src/appliance_management_web_ui.c	<main><h2>
+kernel/src/appliance_management_web_ui.c	<main>\n
+kernel/src/appliance_management_web_ui.c	<main>\n<h2>
+kernel/src/appliance_management_web_ui.c	<meta charset="utf-8">\n
+kernel/src/appliance_management_web_ui.c	<meta name="viewport" 
+kernel/src/appliance_management_web_ui.c	<meta name="viewport" content="width=device-width,initial-scale=1">\n
+kernel/src/appliance_management_web_ui.c	<nav>
+kernel/src/appliance_management_web_ui.c	<nav>Dashboard Network Services Storage System Security Diagnostics Updates Recovery Routing Account Certificates Help</nav>\n
+kernel/src/appliance_management_web_ui.c	<option value="on">on</option></select></label></p>\n
+kernel/src/appliance_management_web_ui.c	<option value="static">
+kernel/src/appliance_management_web_ui.c	<p class="notice">
+kernel/src/appliance_management_web_ui.c	<p class="refused">
+kernel/src/appliance_management_web_ui.c	<p class="state">
+kernel/src/appliance_management_web_ui.c	<p class="state">SIGNED OUT</p>\n
+kernel/src/appliance_management_web_ui.c	<p class="state">UNAVAILABLE</p><p>
+kernel/src/appliance_management_web_ui.c	<p>
+kernel/src/appliance_management_web_ui.c	<p><a href="
+kernel/src/appliance_management_web_ui.c	<p><button type="submit">
+kernel/src/appliance_management_web_ui.c	<p><button type="submit">Sign in</button></p>\n
+kernel/src/appliance_management_web_ui.c	<p><label>
+kernel/src/appliance_management_web_ui.c	<p><label><input type="checkbox" name="default"
+kernel/src/appliance_management_web_ui.c	<p><label>Login <input type="text" name="username" autocomplete="username"></label></p>\n
+kernel/src/appliance_management_web_ui.c	<p><label>Password <input type="password" name="password" autocomplete="current-password"></label></p>\n
+kernel/src/appliance_management_web_ui.c	<p>Management API discovery: <code>/api/v1</code></p>\n
+kernel/src/appliance_management_web_ui.c	<p>Session: none</p>\n
+kernel/src/appliance_management_web_ui.c	<p>Set the account on the machine console with <code>credentials</code>, then sign in here with the same login and password.</p>\n
+kernel/src/appliance_management_web_ui.c	<p>The panel requires an administrator session. Sign in above with the login and password set on the local console, or present the issued token in the <code>Authorization: Bearer</code> request header. A sign-in answers one <code>HttpOnly</code>, <code>Secure</code>, <code>SameSite=Strict</code> session cookie with a short lifetime. The panel loads no browser script and no external asset.</p>\n
+kernel/src/appliance_management_web_ui.c	<small>
+kernel/src/appliance_management_web_ui.c	<style>
+kernel/src/appliance_management_web_ui.c	<style>body{font-family:system-ui,sans-serif;margin:2rem;max-width:60rem;line-height:1.45}nav a{margin-right:.6rem}code{background:#eee;padding:0 .2rem}.state{font-weight:700}.notice{color:#a00;font-weight:700}footer{margin-top:2rem;color:#555;font-size:.9rem}</style>\n
+kernel/src/appliance_management_web_ui.c	<table><tr><th>
+kernel/src/appliance_management_web_ui.c	<title>HFOC Appliance</title>\n
+kernel/src/appliance_management_web_ui.c	<tr><td>
+kernel/src/appliance_management_web_ui.c	APPLIANCE_MANAGEMENT_WEB_UI_BAD_SECTION
+kernel/src/appliance_management_web_ui.c	APPLIANCE_MANAGEMENT_WEB_UI_BAD_STATE
+kernel/src/appliance_management_web_ui.c	APPLIANCE_MANAGEMENT_WEB_UI_MISSING_TRANSLATION
+kernel/src/appliance_management_web_ui.c	APPLIANCE_MANAGEMENT_WEB_UI_NULL
+kernel/src/appliance_management_web_ui.c	APPLIANCE_MANAGEMENT_WEB_UI_OK
+kernel/src/appliance_management_web_ui.c	APPLIANCE_MANAGEMENT_WEB_UI_OVERFLOW
+kernel/src/appliance_management_web_ui.c	AVAILABLE
+kernel/src/appliance_management_web_ui.c	CATALOG_INCOMPLETE
+kernel/src/appliance_management_web_ui.c	DEGRADED
+kernel/src/appliance_management_web_ui.c	LANGUAGE_UNAVAILABLE
+kernel/src/appliance_management_web_ui.c	LICENSE_INVENTORY_UNPUBLISHED
+kernel/src/appliance_management_web_ui.c	LICENSE_PAYLOAD_INCOMPLETE
+kernel/src/appliance_management_web_ui.c	NO_SUCH_HELP_TOPIC
+kernel/src/appliance_management_web_ui.c	SIGNED IN
+kernel/src/appliance_management_web_ui.c	SIGNED OUT
+kernel/src/appliance_management_web_ui.c	THROTTLED
+kernel/src/appliance_management_web_ui.c	UNAVAILABLE
+kernel/src/appliance_management_web_ui.c	\n    
+kernel/src/appliance_management_web_ui.c	]
+kernel/src/appliance_management_web_ui.c	autocomplete="current-password"></label></p>\n
+kernel/src/appliance_management_web_ui.c	autocomplete="username"></label></p>\n
+kernel/src/appliance_management_web_ui.c	body{font-family:system-ui,sans-serif;margin:2rem;
+kernel/src/appliance_management_web_ui.c	code{background:#eee;padding:0 .2rem}
+kernel/src/appliance_management_web_ui.c	content="width=device-width,initial-scale=1">\n
+kernel/src/appliance_management_web_ui.c	en">\n
+kernel/src/appliance_management_web_ui.c	footer{margin-top:2rem;color:#555;font-size:.9rem}
+kernel/src/appliance_management_web_ui.c	max-width:60rem;line-height:1.45}
+kernel/src/appliance_management_web_ui.c	mbedtls
+kernel/src/appliance_management_web_ui.c	name="cancel" value="1">
+kernel/src/appliance_management_web_ui.c	nav a{margin-right:.6rem}
+kernel/src/appliance_management_web_ui.c	none
+kernel/src/appliance_management_web_ui.c	panel.account.change_prefix
+kernel/src/appliance_management_web_ui.c	panel.account.change_suffix
+kernel/src/appliance_management_web_ui.c	panel.account.login
+kernel/src/appliance_management_web_ui.c	panel.account.none_published
+kernel/src/appliance_management_web_ui.c	panel.acme.account
+kernel/src/appliance_management_web_ui.c	panel.acme.attempts
+kernel/src/appliance_management_web_ui.c	panel.acme.control_link
+kernel/src/appliance_management_web_ui.c	panel.acme.control_tail
+kernel/src/appliance_management_web_ui.c	panel.acme.expires
+kernel/src/appliance_management_web_ui.c	panel.acme.names_note
+kernel/src/appliance_management_web_ui.c	panel.acme.none_published
+kernel/src/appliance_management_web_ui.c	panel.acme.order
+kernel/src/appliance_management_web_ui.c	panel.acme.renewal
+kernel/src/appliance_management_web_ui.c	panel.acme.state
+kernel/src/appliance_management_web_ui.c	panel.acme.title
+kernel/src/appliance_management_web_ui.c	panel.acme_control.at
+kernel/src/appliance_management_web_ui.c	panel.acme_control.disable
+kernel/src/appliance_management_web_ui.c	panel.acme_control.enable
+kernel/src/appliance_management_web_ui.c	panel.acme_control.none_published
+kernel/src/appliance_management_web_ui.c	panel.acme_control.none_suffix
+kernel/src/appliance_management_web_ui.c	panel.acme_control.request
+kernel/src/appliance_management_web_ui.c	panel.acme_control.requested
+kernel/src/appliance_management_web_ui.c	panel.acme_control.source
+kernel/src/appliance_management_web_ui.c	panel.acme_control.title
+kernel/src/appliance_management_web_ui.c	panel.acme_control.two_phase_note
+kernel/src/appliance_management_web_ui.c	panel.certificates.active_names
+kernel/src/appliance_management_web_ui.c	panel.certificates.applies
+kernel/src/appliance_management_web_ui.c	panel.certificates.default
+kernel/src/appliance_management_web_ui.c	panel.certificates.import
+kernel/src/appliance_management_web_ui.c	panel.certificates.none_published
+kernel/src/appliance_management_web_ui.c	panel.certificates.source
+kernel/src/appliance_management_web_ui.c	panel.confirm.expires
+kernel/src/appliance_management_web_ui.c	panel.confirm.ms_left
+kernel/src/appliance_management_web_ui.c	panel.confirm.mutation
+kernel/src/appliance_management_web_ui.c	panel.confirm.none
+kernel/src/appliance_management_web_ui.c	panel.confirm.pending
+kernel/src/appliance_management_web_ui.c	panel.confirm.reusable
+kernel/src/appliance_management_web_ui.c	panel.confirm.single_use
+kernel/src/appliance_management_web_ui.c	panel.confirm.title
+kernel/src/appliance_management_web_ui.c	panel.confirm.token
+kernel/src/appliance_management_web_ui.c	panel.confirm.token_inline
+kernel/src/appliance_management_web_ui.c	panel.confirm.window_suffix
+kernel/src/appliance_management_web_ui.c	panel.footer
+kernel/src/appliance_management_web_ui.c	panel.form.backend_address
+kernel/src/appliance_management_web_ui.c	panel.form.backend_port
+kernel/src/appliance_management_web_ui.c	panel.form.cancel
+kernel/src/appliance_management_web_ui.c	panel.form.certificate_name
+kernel/src/appliance_management_web_ui.c	panel.form.certificate_pem
+kernel/src/appliance_management_web_ui.c	panel.form.chain_pem
+kernel/src/appliance_management_web_ui.c	panel.form.confirm
+kernel/src/appliance_management_web_ui.c	panel.form.confirm_code
+kernel/src/appliance_management_web_ui.c	panel.form.confirm_hint
+kernel/src/appliance_management_web_ui.c	panel.form.current_password
+kernel/src/appliance_management_web_ui.c	panel.form.default_certificate
+kernel/src/appliance_management_web_ui.c	panel.form.hostname
+kernel/src/appliance_management_web_ui.c	panel.form.key_pem
+kernel/src/appliance_management_web_ui.c	panel.form.language
+kernel/src/appliance_management_web_ui.c	panel.form.new_login
+kernel/src/appliance_management_web_ui.c	panel.form.new_password
+kernel/src/appliance_management_web_ui.c	panel.form.repeat_password
+kernel/src/appliance_management_web_ui.c	panel.form.route_add
+kernel/src/appliance_management_web_ui.c	panel.form.route_name
+kernel/src/appliance_management_web_ui.c	panel.form.route_name_remove
+kernel/src/appliance_management_web_ui.c	panel.form.route_remove
+kernel/src/appliance_management_web_ui.c	panel.form.stage
+kernel/src/appliance_management_web_ui.c	panel.form.stage_add
+kernel/src/appliance_management_web_ui.c	panel.form.stage_remove
+kernel/src/appliance_management_web_ui.c	panel.form.tls_to_server
+kernel/src/appliance_management_web_ui.c	panel.gate.close
+kernel/src/appliance_management_web_ui.c	panel.gate.control_link
+kernel/src/appliance_management_web_ui.c	panel.gate.control_tail
+kernel/src/appliance_management_web_ui.c	panel.gate.local_only
+kernel/src/appliance_management_web_ui.c	panel.gate.none_published
+kernel/src/appliance_management_web_ui.c	panel.gate.refused
+kernel/src/appliance_management_web_ui.c	panel.gate.security_link
+kernel/src/appliance_management_web_ui.c	panel.gate.source
+kernel/src/appliance_management_web_ui.c	panel.gate.title
+kernel/src/appliance_management_web_ui.c	panel.gate.warning_internet
+kernel/src/appliance_management_web_ui.c	panel.gate.warning_lockout
+kernel/src/appliance_management_web_ui.c	panel.gate.warning_no_presence
+kernel/src/appliance_management_web_ui.c	panel.gate.warning_password_only
+kernel/src/appliance_management_web_ui.c	panel.gate.warning_title
+kernel/src/appliance_management_web_ui.c	panel.gate.warning_wildcard
+kernel/src/appliance_management_web_ui.c	panel.help.all_topics
+kernel/src/appliance_management_web_ui.c	panel.help.command_prefix
+kernel/src/appliance_management_web_ui.c	panel.help.command_suffix
+kernel/src/appliance_management_web_ui.c	panel.help.index_intro
+kernel/src/appliance_management_web_ui.c	panel.help.index_intro_tail
+kernel/src/appliance_management_web_ui.c	panel.help.index_prefix
+kernel/src/appliance_management_web_ui.c	panel.help.not_available
+kernel/src/appliance_management_web_ui.c	panel.licenses.appliance
+kernel/src/appliance_management_web_ui.c	panel.licenses.column_component
+kernel/src/appliance_management_web_ui.c	panel.licenses.column_license
+kernel/src/appliance_management_web_ui.c	panel.licenses.column_notice
+kernel/src/appliance_management_web_ui.c	panel.licenses.column_version
+kernel/src/appliance_management_web_ui.c	panel.licenses.declared
+kernel/src/appliance_management_web_ui.c	panel.licenses.election
+kernel/src/appliance_management_web_ui.c	panel.licenses.election_from
+kernel/src/appliance_management_web_ui.c	panel.licenses.none_published
+kernel/src/appliance_management_web_ui.c	panel.licenses.of
+kernel/src/appliance_management_web_ui.c	panel.licenses.payload
+kernel/src/appliance_management_web_ui.c	panel.licenses.reason
+kernel/src/appliance_management_web_ui.c	panel.licenses.shipped
+kernel/src/appliance_management_web_ui.c	panel.licenses.title
+kernel/src/appliance_management_web_ui.c	panel.login.api_discovery
+kernel/src/appliance_management_web_ui.c	panel.login.cookie_separator
+kernel/src/appliance_management_web_ui.c	panel.login.cookie_suffix
+kernel/src/appliance_management_web_ui.c	panel.login.login
+kernel/src/appliance_management_web_ui.c	panel.login.password
+kernel/src/appliance_management_web_ui.c	panel.login.principal_prefix
+kernel/src/appliance_management_web_ui.c	panel.login.requirements_middle
+kernel/src/appliance_management_web_ui.c	panel.login.requirements_prefix
+kernel/src/appliance_management_web_ui.c	panel.login.session
+kernel/src/appliance_management_web_ui.c	panel.login.session_prefix
+kernel/src/appliance_management_web_ui.c	panel.login.set_account_prefix
+kernel/src/appliance_management_web_ui.c	panel.login.set_account_suffix
+kernel/src/appliance_management_web_ui.c	panel.login.sign_in
+kernel/src/appliance_management_web_ui.c	panel.login.sign_out
+kernel/src/appliance_management_web_ui.c	panel.login.throttle
+kernel/src/appliance_management_web_ui.c	panel.login.throttle_suffix
+kernel/src/appliance_management_web_ui.c	panel.login.title
+kernel/src/appliance_management_web_ui.c	panel.network.label_address
+kernel/src/appliance_management_web_ui.c	panel.network.label_dns
+kernel/src/appliance_management_web_ui.c	panel.network.label_gateway
+kernel/src/appliance_management_web_ui.c	panel.network.label_mode
+kernel/src/appliance_management_web_ui.c	panel.network.label_prefix
+kernel/src/appliance_management_web_ui.c	panel.network.mode_static
+kernel/src/appliance_management_web_ui.c	panel.network.none_published
+kernel/src/appliance_management_web_ui.c	panel.network.title
+kernel/src/appliance_management_web_ui.c	panel.read.active
+kernel/src/appliance_management_web_ui.c	panel.read.not_invented
+kernel/src/appliance_management_web_ui.c	panel.read.saved
+kernel/src/appliance_management_web_ui.c	panel.read.saved_applies
+kernel/src/appliance_management_web_ui.c	panel.routes.many
+kernel/src/appliance_management_web_ui.c	panel.routes.none_applied
+kernel/src/appliance_management_web_ui.c	panel.routes.none_published
+kernel/src/appliance_management_web_ui.c	panel.routes.one
+kernel/src/appliance_management_web_ui.c	panel.routes.title
+kernel/src/appliance_management_web_ui.c	panel.routes.truncated
+kernel/src/appliance_management_web_ui.c	panel.section.account
+kernel/src/appliance_management_web_ui.c	panel.section.certificates
+kernel/src/appliance_management_web_ui.c	panel.section.help
+kernel/src/appliance_management_web_ui.c	panel.security.expires_inline
+kernel/src/appliance_management_web_ui.c	panel.security.pending_title
+kernel/src/appliance_management_web_ui.c	panel.security.placeholder_certificate
+kernel/src/appliance_management_web_ui.c	panel.security.placeholder_chain
+kernel/src/appliance_management_web_ui.c	panel.security.placeholder_key
+kernel/src/appliance_management_web_ui.c	panel.security.ticks_single_use
+kernel/src/appliance_management_web_ui.c	panel.security.title
+kernel/src/appliance_management_web_ui.c	panel.security.token_inline
+kernel/src/appliance_management_web_ui.c	panel.state.degraded
+kernel/src/appliance_management_web_ui.c	panel.state.help_source_prefix
+kernel/src/appliance_management_web_ui.c	panel.state.help_source_suffix
+kernel/src/appliance_management_web_ui.c	panel.state.owner
+kernel/src/appliance_management_web_ui.c	panel.state.read_side
+kernel/src/appliance_management_web_ui.c	panel.state.security_no_read
+kernel/src/appliance_management_web_ui.c	panel.state.unavailable
+kernel/src/appliance_management_web_ui.c	panel.system.language_active
+kernel/src/appliance_management_web_ui.c	panel.system.none_published
+kernel/src/appliance_management_web_ui.c	panel.system.title
+kernel/src/appliance_management_web_ui.c	panel.view.detail
+kernel/src/appliance_management_web_ui.c	panel.view.hostname
+kernel/src/appliance_management_web_ui.c	panel.view.mac
+kernel/src/appliance_management_web_ui.c	panel.view.recent_log
+kernel/src/appliance_management_web_ui.c	panel.view.service
+kernel/src/appliance_management_web_ui.c	unavailable
+kernel/src/appliance_production_panel_view.c	 reason=
+kernel/src/appliance_production_panel_view.c	0123456789abcdef
+kernel/src/appliance_production_panel_view.c	state=
+kernel/src/console.c	 (ARM <1..
+kernel/src/console.c	 (PTR <1..
+kernel/src/console.c	 DROPPED=
+kernel/src/console.c	 ERRORS=
+kernel/src/console.c	 GAP_MS_MAX=
+kernel/src/console.c	 KEYS=
+kernel/src/console.c	 LAST=
+kernel/src/console.c	 MIB\n
+kernel/src/console.c	 P-256 point
+kernel/src/console.c	 P=1 RW=1 PWT=1 PCD=1 PAT=0\n
+kernel/src/console.c	 REFUSED=
+kernel/src/console.c	 SECONDS\n
+kernel/src/console.c	 TRANSFERS=
+kernel/src/console.c	 action=RUN
+kernel/src/console.c	 actual=
+kernel/src/console.c	 authorized-key revoke failed; the listener stays stopped and
+kernel/src/console.c	 authorized=
+kernel/src/console.c	 authorized=NONE
+kernel/src/console.c	 available=
+kernel/src/console.c	 available_count=
+kernel/src/console.c	 batches=
+kernel/src/console.c	 bpp=
+kernel/src/console.c	 budget=
+kernel/src/console.c	 byte=0x
+kernel/src/console.c	 bytes=
+kernel/src/console.c	 cap=
+kernel/src/console.c	 capacity=
+kernel/src/console.c	 cell_px=
+kernel/src/console.c	 cells=
+kernel/src/console.c	 cert=
+kernel/src/console.c	 chars=
+kernel/src/console.c	 chosen=
+kernel/src/console.c	 clamped=
+kernel/src/console.c	 cleared
+kernel/src/console.c	 count=
+kernel/src/console.c	 coverage=
+kernel/src/console.c	 credited=
+kernel/src/console.c	 dmax=
+kernel/src/console.c	 draw_us=
+kernel/src/console.c	 dropped_pages=
+kernel/src/console.c	 dx=
+kernel/src/console.c	 dy=
+kernel/src/console.c	 enrollment is local-only
+kernel/src/console.c	 event_ring=
+kernel/src/console.c	 events=
+kernel/src/console.c	 failed; the listener stays stopped and the old key may
+kernel/src/console.c	 fallback=
+kernel/src/console.c	 free_pages=
+kernel/src/console.c	 gain=
+kernel/src/console.c	 height=
+kernel/src/console.c	 iter_max_us=
+kernel/src/console.c	 line=
+kernel/src/console.c	 listener stays stopped
+kernel/src/console.c	 login and password are entered on hidden lines\n
+kernel/src/console.c	 max=
+kernel/src/console.c	 max_us=
+kernel/src/console.c	 modes=
+kernel/src/console.c	 mouse_armed=
+kernel/src/console.c	 moves=
+kernel/src/console.c	 pages=
+kernel/src/console.c	 pitch=
+kernel/src/console.c	 preferred=
+kernel/src/console.c	 presses=
+kernel/src/console.c	 primary=
+kernel/src/console.c	 reachability=
+kernel/src/console.c	 records=
+kernel/src/console.c	 refused reason=
+kernel/src/console.c	 requested=
+kernel/src/console.c	 return after reboot
+kernel/src/console.c	 scale=
+kernel/src/console.c	 seed is entered on a hidden line\n
+kernel/src/console.c	 service_lines=
+kernel/src/console.c	 source=
+kernel/src/console.c	 state=
+kernel/src/console.c	 status=
+kernel/src/console.c	 step=
+kernel/src/console.c	 sync_us=
+kernel/src/console.c	 the
+kernel/src/console.c	 the old key may return after reboot
+kernel/src/console.c	 type `ssh-key confirm` on the next line
+kernel/src/console.c	 us=
+kernel/src/console.c	 used=
+kernel/src/console.c	 version=
+kernel/src/console.c	 via 
+kernel/src/console.c	 width=
+kernel/src/console.c	 written and read back
+kernel/src/console.c	 x=
+kernel/src/console.c	 y=
+kernel/src/console.c	 | ssh-key confirm <SHA256:...> | ssh-key remove
+kernel/src/console.c	"
+kernel/src/console.c	';\n                }\n                record[length] = '\x00';\n                console_journal_record(record, length);\n            }\n            start = index + 1U;\n        }\n    }\n    if (transcript_overflow) {\n        console_journal_record(
+kernel/src/console.c	-TAIL
+kernel/src/console.c	0123456789ABCDEF
+kernel/src/console.c	: 
+kernel/src/console.c	<truncated>"
+kernel/src/console.c	=r
+kernel/src/console.c	ACCOUNT
+kernel/src/console.c	ACCOUNT_PUBLISH
+kernel/src/console.c	ADMIN SESSION: Authorization: Bearer 
+kernel/src/console.c	APPLIANCE_PRODUCTION_ADMIN_ENROLLMENT_
+kernel/src/console.c	AWAITING_ENTROPY nor FAILED\n
+kernel/src/console.c	COMMANDS: HELP CLEAR SCROLL VERSION UPTIME TICKS IRQ KBD MEM PMM HEAP ABOUT APPLIANCE APPLIANCE-BOOT CREDENTIALS LOGIN LANGUAGE REBOOT SHUTDOWN PANIC DIVZERO PAGEFAULT DOUBLEFAULT VMMMAP BOOTLOG MENU XHCI INPUT DIAG PTR ARM\n
+kernel/src/console.c	COMPLETE
+kernel/src/console.c	CONFIGURATION
+kernel/src/console.c	CONSOLE TRANSLATION MISSING
+kernel/src/console.c	CONSOLE TRANSLATION MISSING\n
+kernel/src/console.c	DIAG DETAIL 
+kernel/src/console.c	DIAG LAST
+kernel/src/console.c	DIAG SAVED id=
+kernel/src/console.c	DIAG SNAPSHOT records=
+kernel/src/console.c	DIAG SNAPSHOT: diag snapshot prints it again\n
+kernel/src/console.c	DIAG SNAPSHOT: none this boot\n
+kernel/src/console.c	DIAG: no failure recorded this boot\n
+kernel/src/console.c	DOUBLE FAULT IST ENABLED\n
+kernel/src/console.c	ENTROPY
+kernel/src/console.c	GDT IDT LEGACY PIC PIT PS2: 
+kernel/src/console.c	GDT IDT LEGACY PIC PIT PS2: OK\n
+kernel/src/console.c	GDT IDT LEGACY PIC PIT PS2: UNAVAILABLE\n
+kernel/src/console.c	GDT IDT TSS/IST CPU EXCEPTIONS LEGACY PIC PIT IRQ PS2 KEYBOARD FRAMEBUFFER CONSOLE\n
+kernel/src/console.c	HELP IS NOT AVAILABLE\n
+kernel/src/console.c	HFOC OS 1.0.0 INITIALISED\n
+kernel/src/console.c	HFOC OS 1.0.0 X86-64 build=
+kernel/src/console.c	HOST_SEED_REKEY_FAILED\n
+kernel/src/console.c	KEYBOARD)\n
+kernel/src/console.c	LOCAL CONSOLE
+kernel/src/console.c	LOCAL INPUT: DISABLED (NO PS/2 
+kernel/src/console.c	LOCAL INPUT: DISABLED (NO PS/2 KEYBOARD)\n
+kernel/src/console.c	LOCAL INPUT: ENABLED (USB HID 
+kernel/src/console.c	LOCAL INPUT: ENABLED (USB HID KEYBOARD)\n
+kernel/src/console.c	OFF
+kernel/src/console.c	ON
+kernel/src/console.c	Panic requested from console
+kernel/src/console.c	RECORD
+kernel/src/console.c	SEED
+kernel/src/console.c	STORAGE MEDIUM:
+kernel/src/console.c	STORAGE WRITE PROOF: FAILED\n
+kernel/src/console.c	STORAGE WRITE PROOF: OK\n
+kernel/src/console.c	TRIGGERING DIVIDE ERROR...\n
+kernel/src/console.c	TRIGGERING DOUBLE FAULT VIA #PF GATE NOT-PRESENT...\n
+kernel/src/console.c	TRIGGERING PAGE FAULT...\n
+kernel/src/console.c	TYPE HELP FOR COMMANDS, MENU FOR THE LOCAL MENU\n
+kernel/src/console.c	UNAVAILABLE
+kernel/src/console.c	UNAVAILABLE\n
+kernel/src/console.c	UNKNOWN
+kernel/src/console.c	UNKNOWN_LANGUAGE
+kernel/src/console.c	UNSUPPORTED
+kernel/src/console.c	USB HID: REPORTS=
+kernel/src/console.c	USE SERIAL OR THE MANAGEMENT PLANE\n
+kernel/src/console.c	WRITE_FAILED
+kernel/src/console.c	[ADMIN-ENROLLMENT] 
+kernel/src/console.c	[ADMIN-ENROLLMENT] UNAVAILABLE\n
+kernel/src/console.c	[ADMIN-ENROLLMENT] conversation lost\n
+kernel/src/console.c	[ADMIN-ENROLLMENT] conversation refused\n
+kernel/src/console.c	[ADMIN-ENROLLMENT] credentials changed login=
+kernel/src/console.c	[ADMIN-ENROLLMENT] credentials refused: 
+kernel/src/console.c	[ADMIN-ENROLLMENT] current password refused: 
+kernel/src/console.c	[ADMIN-ENROLLMENT] login refused: 
+kernel/src/console.c	[ADMIN-ENROLLMENT] no verifiable account; this sets the first 
+kernel/src/console.c	[ADMIN-ENROLLMENT] reset refused: 
+kernel/src/console.c	[ADMIN-ENROLLMENT] reset refused: no CREDENTIALS RESET was 
+kernel/src/console.c	[ADMIN-ENROLLMENT] reset requires confirmation; type 
+kernel/src/console.c	[ADMIN-ENROLLMENT] reset; state=UNPROVISIONED
+kernel/src/console.c	[ADMIN-ENROLLMENT] state=UNAVAILABLE
+kernel/src/console.c	[ADMIN-ENROLLMENT] state=UNAVAILABLE\n
+kernel/src/console.c	[ADMIN-ENROLLMENT] the old secret record is not migrated by a 
+kernel/src/console.c	[APPLIANCE-BOOT] RENDER FAILED\n
+kernel/src/console.c	[APPLIANCE-BOOT] SNAPSHOT FAILED\n
+kernel/src/console.c	[APPLIANCE-BOOT] STORAGE FAILED\n
+kernel/src/console.c	[APPLIANCE] CONFIG FAILED\n
+kernel/src/console.c	[APPLIANCE] RENDER FAILED\n
+kernel/src/console.c	[APPLIANCE] SNAPSHOT FAILED\n
+kernel/src/console.c	[CONSOLE-BOUND] worst=
+kernel/src/console.c	[CONSOLE] boot paint lines=
+kernel/src/console.c	[CONSOLE] cmd="
+kernel/src/console.c	[CONSOLE] help unavailable reason=CATALOG_INCOMPLETE
+kernel/src/console.c	[CONSOLE] language=
+kernel/src/console.c	[CONSOLE] out="
+kernel/src/console.c	[CONSOLE] out="<truncated>"
+kernel/src/console.c	[CONSOLE] paint lines=
+kernel/src/console.c	[CONSOLE] screen suppressed=
+kernel/src/console.c	[CONSOLE] scroll rows=
+kernel/src/console.c	[DIAG-FAIL] reason=
+kernel/src/console.c	[FB] width=
+kernel/src/console.c	[GLYPH-MISSING] codepoint=U+
+kernel/src/console.c	[HEAP] ready=
+kernel/src/console.c	[INPUT-ARM] mouse_arm_depth=
+kernel/src/console.c	[LOCAL-MENU] closed\n
+kernel/src/console.c	[LOCAL-MENU] offer cancelled\n
+kernel/src/console.c	[LOCAL-MENU] offered reason=IDLE entries=6 keys=
+kernel/src/console.c	[LOCAL-MENU] offered reason=NO_LOCAL_INPUT entries=6 keys=
+kernel/src/console.c	[LOCAL-MENU] open\n
+kernel/src/console.c	[LOCAL-MENU] power off now\n
+kernel/src/console.c	[LOCAL-MENU] reboot now\n
+kernel/src/console.c	[LOCAL-MENU] reboot refused: no reset plan\n
+kernel/src/console.c	[LOCAL-MENU] recovery UNAVAILABLE on this build\n
+kernel/src/console.c	[LOCAL-MENU] run action=
+kernel/src/console.c	[LOCAL-MENU] shutdown refused: 
+kernel/src/console.c	[PMM ] usable=
+kernel/src/console.c	[POINTER-BATCH] draws=
+kernel/src/console.c	[POINTER] click entry=
+kernel/src/console.c	[POINTER] click entry=NONE action=NONE
+kernel/src/console.c	[POINTER] gain=
+kernel/src/console.c	[POINTER] menu targets=
+kernel/src/console.c	[POINTER] moves=
+kernel/src/console.c	[PRODUCTION-LOOP] iter_us=
+kernel/src/console.c	[PRODUCTION-NET-SET] state=CANCELLED\n
+kernel/src/console.c	[PRODUCTION-NET-SET] state=REFUSED reason=SETUP_INTERNAL\n
+kernel/src/console.c	[RNG] credential conversation already open\n
+kernel/src/console.c	[RNG] host seed login is not needed: entropy is READY\n
+kernel/src/console.c	[RNG] host seed login is unavailable in this profile\n
+kernel/src/console.c	[RNG] host seed status=OK stage=COMPLETE
+kernel/src/console.c	[RNG] host unlock stage=
+kernel/src/console.c	[RNG] operator seed conversation already open\n
+kernel/src/console.c	[RNG] operator seed refused: entropy owner is neither 
+kernel/src/console.c	[RNG] operator seed refused: hardware entropy is READY\n
+kernel/src/console.c	[RNG] operator seed status=
+kernel/src/console.c	[RNG] operator seed unavailable in this profile\n
+kernel/src/console.c	[RNG] operator seed: type 64 hex characters, then ENTER\n
+kernel/src/console.c	[RNG] type `entropy seed` with no argument;
+kernel/src/console.c	[RNG] type `entropy unlock` to retry the local login\n
+kernel/src/console.c	[RNG] type `entropy unlock` with no argument;
+kernel/src/console.c	[RNG] usage: entropy unlock | entropy seed\n
+kernel/src/console.c	[SSH-KEY] fingerprint=
+kernel/src/console.c	[SSH-KEY] host=
+kernel/src/console.c	[SSH-KEY] host=UNAVAILABLE authorized=NONE
+kernel/src/console.c	[SSH-KEY] refused: expected the 88-character base64 of the
+kernel/src/console.c	[SSH-KEY] refused: fingerprint
+kernel/src/console.c	[SSH-KEY] refused: no matching pending fingerprint
+kernel/src/console.c	[SSH-KEY] refused: run `login` or `credentials` first;
+kernel/src/console.c	[SSH-KEY] refused: the SSH host identity is not available
+kernel/src/console.c	[SSH-KEY] refused: the authorized-key record was not
+kernel/src/console.c	[SSH-KEY] state=ADDED fingerprint=
+kernel/src/console.c	[SSH-KEY] state=RAM_REVOKED durable=FAILED; the key may
+kernel/src/console.c	[SSH-KEY] state=REMOVED authorized=NONE
+kernel/src/console.c	[SSH-KEY] usage: ssh-key show | ssh-key add <88 base64 point>
+kernel/src/console.c	[SSH-KEY] warning: the credential reset succeeded but the
+kernel/src/console.c	[SSH-KEY] warning: the live session revoke failed; the
+kernel/src/console.c	[SSH-KEY] warning: the previous key's durable revoke
+kernel/src/console.c	[VMM] MMIO page mapped successfully\n
+kernel/src/console.c	[VMM] Mapping LAPIC page phys=0x00000000FEE00000\n
+kernel/src/console.c	[VMM] PTE=
+kernel/src/console.c	[VMM] map failed: 
+kernel/src/console.c	[VMM] map failed: PTE read-back error\n
+kernel/src/console.c	[VMM] map failed: PTE read-back mismatch\n
+kernel/src/console.c	[VMM] virtual=
+kernel/src/console.c	\n
+kernel/src/console.c	\r
+kernel/src/console.c	\x08 \x08
+kernel/src/console.c	`CREDENTIALS RESET CONFIRM` on the next line
+kernel/src/console.c	about
+kernel/src/console.c	admin-login 
+kernel/src/console.c	admin-login <redacted>
+kernel/src/console.c	admin-provision 
+kernel/src/console.c	admin-provision <redacted>
+kernel/src/console.c	appliance
+kernel/src/console.c	appliance-boot
+kernel/src/console.c	arm
+kernel/src/console.c	arm 
+kernel/src/console.c	bootlog
+kernel/src/console.c	change; run `credentials reset`, then `credentials reset 
+kernel/src/console.c	clear
+kernel/src/console.c	confirm`, and set the account again
+kernel/src/console.c	console.gate.current
+kernel/src/console.c	console.gate.local_secret_required
+kernel/src/console.c	console.gate.refused
+kernel/src/console.c	console.gate.saved_closed
+kernel/src/console.c	console.gate.saved_open
+kernel/src/console.c	console.gate.unavailable
+kernel/src/console.c	console.gate.unconfirmed
+kernel/src/console.c	console.gate.usage
+kernel/src/console.c	console.gate.value_closed
+kernel/src/console.c	console.gate.value_open
+kernel/src/console.c	console.gate.warning_confirm
+kernel/src/console.c	console.gate.warning_internet
+kernel/src/console.c	console.gate.warning_lockout
+kernel/src/console.c	console.gate.warning_no_presence
+kernel/src/console.c	console.gate.warning_password_only
+kernel/src/console.c	console.gate.warning_short_closed
+kernel/src/console.c	console.gate.warning_short_open
+kernel/src/console.c	console.gate.warning_title
+kernel/src/console.c	console.gate.warning_wildcard
+kernel/src/console.c	console.gate.write_failed
+kernel/src/console.c	console.label.if
+kernel/src/console.c	console.label.irq_keyboard
+kernel/src/console.c	console.label.keyboard_irq
+kernel/src/console.c	console.label.last_scancode
+kernel/src/console.c	console.label.management
+kernel/src/console.c	console.label.pic_master_mask
+kernel/src/console.c	console.label.pic_slave_mask
+kernel/src/console.c	console.label.power
+kernel/src/console.c	console.label.ticks
+kernel/src/console.c	console.label.timer_irq
+kernel/src/console.c	console.label.unknown_command
+kernel/src/console.c	console.label.uptime
+kernel/src/console.c	console.label.usable_memory
+kernel/src/console.c	console.language.current
+kernel/src/console.c	console.language.refused
+kernel/src/console.c	console.language.saved
+kernel/src/console.c	console.language.unavailable
+kernel/src/console.c	console.language.usage
+kernel/src/console.c	console.menu.no_local_input
+kernel/src/console.c	console.menu.offer_idle
+kernel/src/console.c	console.menu.offered_reading
+kernel/src/console.c	console.menu.render_failed
+kernel/src/console.c	console.prose.arm_range_suffix
+kernel/src/console.c	console.prose.bootlog_unavailable
+kernel/src/console.c	console.prose.credentials_busy
+kernel/src/console.c	console.prose.credentials_checking
+kernel/src/console.c	console.prose.power_refused
+kernel/src/console.c	console.prose.ptr_range_suffix
+kernel/src/console.c	console.prose.scroll_empty
+kernel/src/console.c	console.prose.scroll_hint
+kernel/src/console.c	console.prose.unknown_command_hint
+kernel/src/console.c	diag
+kernel/src/console.c	diag save
+kernel/src/console.c	diag snapshot
+kernel/src/console.c	divzero
+kernel/src/console.c	doublefault
+kernel/src/console.c	ehci
+kernel/src/console.c	entropy
+kernel/src/console.c	entropy 
+kernel/src/console.c	entropy seed
+kernel/src/console.c	entropy seed 
+kernel/src/console.c	entropy unlock
+kernel/src/console.c	heap
+kernel/src/console.c	help.title
+kernel/src/console.c	help.topic_missing
+kernel/src/console.c	help.topics
+kernel/src/console.c	help.usage
+kernel/src/console.c	hfoc> 
+kernel/src/console.c	https://
+kernel/src/console.c	input
+kernel/src/console.c	irq
+kernel/src/console.c	kbd
+kernel/src/console.c	mem
+kernel/src/console.c	menu
+kernel/src/console.c	mov %%cr3, %0
+kernel/src/console.c	network
+kernel/src/console.c	no
+kernel/src/console.c	one
+kernel/src/console.c	pagefault
+kernel/src/console.c	panic
+kernel/src/console.c	pmm
+kernel/src/console.c	poweroff
+kernel/src/console.c	ptr
+kernel/src/console.c	ptr 
+kernel/src/console.c	rax
+kernel/src/console.c	rcx
+kernel/src/console.c	rdx
+kernel/src/console.c	reboot
+kernel/src/console.c	requested
+kernel/src/console.c	scroll
+kernel/src/console.c	shutdown
+kernel/src/console.c	ssh-key
+kernel/src/console.c	ssh-key add
+kernel/src/console.c	ssh-key confirm
+kernel/src/console.c	ssh-key remove
+kernel/src/console.c	ssh-key show
+kernel/src/console.c	storage
+kernel/src/console.c	storage medium
+kernel/src/console.c	storage write-proof
+kernel/src/console.c	ticks
+kernel/src/console.c	uptime
+kernel/src/console.c	version
+kernel/src/console.c	vmmmap
+kernel/src/console.c	x
+kernel/src/console.c	xhci
+kernel/src/console.c	xor %%rdx, %%rdx; mov $1, %%rax; xor %%rcx, %%rcx; divq %%rcx
+kernel/src/console.c	yes
+kernel/src/installer_credential_screen.c	
+kernel/src/installer_credential_screen.c	CREDENTIAL TRANSLATION MISSING
+kernel/src/installer_credential_screen.c	INSTALLER TRANSLATION MISSING
+kernel/src/installer_credential_screen.c	\n
+kernel/src/installer_credential_screen.c	installer.credential.checking
+kernel/src/installer_credential_screen.c	installer.credential.password_note
+kernel/src/installer_credential_screen.c	installer.credential.title
+kernel/src/installer_notice.c	installer.notice.remove_medium
+kernel/src/installer_notice.c	installer.notice.title
+kernel/src/installer_storage_screen.c	\n
+kernel/src/installer_ui.c	
+kernel/src/installer_ui.c	 
+kernel/src/installer_ui.c	  
+kernel/src/installer_ui.c	 state=
+kernel/src/installer_ui.c	> 
+kernel/src/installer_ui.c	AVAILABLE
+kernel/src/installer_ui.c	DEGRADED
+kernel/src/installer_ui.c	DOWN
+kernel/src/installer_ui.c	ENTER
+kernel/src/installer_ui.c	INSTALLER TRANSLATION MISSING
+kernel/src/installer_ui.c	NONE
+kernel/src/installer_ui.c	NOT_IMPLEMENTED
+kernel/src/installer_ui.c	OTHER
+kernel/src/installer_ui.c	QUIT
+kernel/src/installer_ui.c	SERIAL
+kernel/src/installer_ui.c	TEXT
+kernel/src/installer_ui.c	UNAVAILABLE
+kernel/src/installer_ui.c	UP
+kernel/src/installer_ui.c	[INSTALLER-UI] selected=
+kernel/src/installer_ui.c	installer.foundation.continue_detail
+kernel/src/installer_ui.c	installer.foundation.footer
+kernel/src/installer_ui.c	installer.foundation.network_detail
+kernel/src/installer_ui.c	installer.foundation.row_continue
+kernel/src/installer_ui.c	installer.foundation.row_display
+kernel/src/installer_ui.c	installer.foundation.row_network
+kernel/src/installer_ui.c	installer.foundation.row_storage
+kernel/src/installer_ui.c	installer.foundation.storage_detail
+kernel/src/installer_ui.c	installer.foundation.title
+kernel/src/installer_ui.c	installer.ui.backend_prefix
+kernel/src/installer_ui.c	installer.ui.fallback_prefix
+kernel/src/installer_ui.c	installer.ui.pixel_format_prefix
+kernel/src/installer_ui.c	installer.ui.resolution_prefix
+kernel/src/installer_ui.c	installer.ui.status_prefix
+kernel/src/local_menu.c	
+kernel/src/local_menu.c	  (
+kernel/src/local_menu.c	  [
+kernel/src/local_menu.c	)\n
+kernel/src/local_menu.c	> [
+kernel/src/local_menu.c	UNKNOWN
+kernel/src/local_menu.c	\n
+kernel/src/local_menu.c	] 
+kernel/src/local_menu.c	diagnostics
+kernel/src/local_menu.c	menu.local.diagnostics
+kernel/src/local_menu.c	menu.local.hint
+kernel/src/local_menu.c	menu.local.network
+kernel/src/local_menu.c	menu.local.reboot
+kernel/src/local_menu.c	menu.local.recovery
+kernel/src/local_menu.c	menu.local.shutdown
+kernel/src/local_menu.c	menu.local.status
+kernel/src/local_menu.c	menu.local.title
+kernel/src/local_menu.c	menu.local.unknown
+kernel/src/local_menu.c	network
+kernel/src/local_menu.c	reboot
+kernel/src/local_menu.c	recovery
+kernel/src/local_menu.c	shutdown
+kernel/src/local_menu.c	status
+kernel/src/local_menu.c	the menu grew past LOCAL_MENU_ENTRY_MAX

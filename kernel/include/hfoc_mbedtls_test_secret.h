@@ -1,0 +1,17 @@
+#ifndef HFOC_MBEDTLS_TEST_SECRET_H
+#define HFOC_MBEDTLS_TEST_SECRET_H
+
+#include <stdint.h>
+
+#define HFOC_MBEDTLS_TEST_SECRET_VERSION 1U
+#define HFOC_MBEDTLS_TEST_SECRET_PURPOSE_TLS_HANDSHAKE 1U
+#define HFOC_MBEDTLS_TEST_SECRET_MARKER "HFOC-MBEDTLS-TEST-SECRET"
+#define HFOC_MBEDTLS_TEST_SECRET_CERT_DIGEST "1552a388cd8bbd3e9028214d14fdd0f135b1f8b71ea7147010d35df7ddfb2c92"
+#define HFOC_MBEDTLS_TEST_SECRET_KEY_DIGEST "04a7df80aa46753c466eb4e9df8891161d4aaf9d2145deae79c27a640c7989f1"
+
+const uint8_t *hfoc_mbedtls_test_secret_certificate(void);
+uint32_t hfoc_mbedtls_test_secret_certificate_length(void);
+const uint8_t *hfoc_mbedtls_test_secret_key(void);
+uint32_t hfoc_mbedtls_test_secret_key_length(void);
+
+#endif

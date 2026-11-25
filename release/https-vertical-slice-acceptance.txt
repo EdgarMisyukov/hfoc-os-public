@@ -1,0 +1,66 @@
+https_vertical_slice_acceptance_version=1
+target_slice_id=HFOC-HTTPS-VERTICAL-SLICE
+check_count=9
+
+# Standard HTTPS client harness (item 291).
+check_1_id=HTTPS-CLIENT-291
+check_1_category=CLIENT
+check_1_name=https-client
+check_1_target=test-https-client-qemu
+check_1_marker=QEMU HTTPS client test: OK
+
+# Exact HTTPS successful response matrix (item 292).
+check_2_id=HTTPS-RESPONSE-292
+check_2_category=RESPONSE
+check_2_name=https-response
+check_2_target=test-https-response-matrix-qemu
+check_2_marker=QEMU HTTPS response matrix test: OK
+
+# Encrypted HTTPS malformed-request matrix (item 293).
+check_3_id=HTTPS-MALFORMED-293
+check_3_category=MALFORMED
+check_3_name=https-malformed
+check_3_target=test-https-malformed-request-matrix-qemu
+check_3_marker=QEMU HTTPS malformed-request matrix test: OK
+
+# Encrypted HTTPS size-boundary matrix (item 294).
+check_4_id=HTTPS-SIZE-294
+check_4_category=SIZE
+check_4_name=https-size
+check_4_target=test-https-size-boundary-matrix-qemu
+check_4_marker=QEMU HTTPS size-boundary matrix test: OK
+
+# Concurrent HTTPS exhaustion matrix (item 295).
+check_5_id=HTTPS-EXHAUSTION-295
+check_5_category=EXHAUSTION
+check_5_name=https-exhaustion
+check_5_target=test-https-exhaustion-matrix-qemu
+check_5_marker=QEMU HTTPS exhaustion matrix test: OK
+
+# Entropy fail-closed matrix (item 296).
+check_6_id=HTTPS-ENTROPY-296
+check_6_category=ENTROPY
+check_6_name=https-entropy
+check_6_target=test-entropy-fail-closed-matrix-qemu
+check_6_marker=QEMU entropy fail-closed matrix test: OK
+
+# Certificate/key fail-closed matrix (item 297).
+check_7_id=HTTPS-CERTIFICATE-297
+check_7_category=CERTIFICATE
+check_7_name=https-certificate
+check_7_target=test-certificate-fail-closed-matrix-host
+check_7_marker=Certificate/key fail-closed matrix: OK
+
+# Production artifact secret gate (item 298).
+check_8_id=HTTPS-SECRET-298
+check_8_category=SECRET
+check_8_name=https-secret
+check_8_target=test-production-artifact-secret-gate-host
+check_8_marker=Production artifact secret gate host test: ALL OK
+
+# HTTPS restart/soak rehearsal (item 299).
+check_9_id=HTTPS-RESTART-299
+check_9_category=RESTART
+check_9_name=https-restart
+check_9_target=test-https-restart-soak-qemu
+check_9_marker=QEMU HTTPS restart/soak test: OK

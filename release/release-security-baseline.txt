@@ -1,0 +1,81 @@
+release_security_baseline_version=1
+target_release_id=HFOC-APPLIANCE-V1
+check_count=13
+
+# W^X user mapping and layout enforcement.
+check_1_id=WX-001
+check_1_category=WX
+check_1_name=user-layout-and-mapping
+check_1_target=test-vmm-user-host
+
+# W^X user init code/stack mapping permissions.
+check_2_id=WX-002
+check_2_category=WX
+check_2_name=user-init-mapping-permissions
+check_2_target=test-user-init-process-host
+
+# Syscall ABI and bounded user-pointer validation.
+check_3_id=SYSCALL-001
+check_3_category=SYSCALL_USER_POINTER
+check_3_name=syscall-abi-user-pointer
+check_3_target=test-syscall-host
+
+# Syscall origin validation.
+check_4_id=SYSCALL-002
+check_4_category=SYSCALL_USER_POINTER
+check_4_name=syscall-origin-validation
+check_4_target=test-syscall-origin-host
+
+# Syscall capability denial before dispatch.
+check_5_id=SYSCALL-003
+check_5_category=SYSCALL_USER_POINTER
+check_5_name=syscall-capability-denial
+check_5_target=test-syscall-gate-host
+
+# Local-control outage recovery and malformed-command denial.
+check_6_id=LOCAL-CONTROL-001
+check_6_category=LOCAL_CONTROL
+check_6_name=local-control-outage-recovery
+check_6_target=test-local-control-outage-drill-host
+
+# Local-control authorization denial with no side effects.
+check_7_id=LOCAL-CONTROL-002
+check_7_category=LOCAL_CONTROL
+check_7_name=local-control-authorization
+check_7_target=test-authorization-host
+
+# Trust revocation, tamper, and purpose denial.
+check_8_id=TRUST-001
+check_8_category=TRUST
+check_8_name=trust-failure-denial
+check_8_target=test-trust-failure-drill-host
+
+# Network admission deny-by-default policy.
+check_9_id=NETWORK-001
+check_9_category=NETWORK_ADMISSION
+check_9_name=network-admission-policy
+check_9_target=test-network-admission-host
+
+# Network partition preserves local operation.
+check_10_id=NETWORK-002
+check_10_category=NETWORK_ADMISSION
+check_10_name=network-partition-local-operation
+check_10_target=test-network-partition-drill-host
+
+# External integration principal local-admin denial.
+check_11_id=INTEGRATION-001
+check_11_category=INTEGRATION_DENIAL
+check_11_name=integration-principal-denial
+check_11_target=test-integration-principal-host
+
+# External integration config-intent denial leaves active state unchanged.
+check_12_id=INTEGRATION-002
+check_12_category=INTEGRATION_DENIAL
+check_12_name=integration-config-intent-denial
+check_12_target=test-integration-config-intent-host
+
+# Integration replay/outage denial and isolation.
+check_13_id=INTEGRATION-003
+check_13_category=INTEGRATION_DENIAL
+check_13_name=integration-replay-outage-denial
+check_13_target=test-integration-replay-outage-drill-host

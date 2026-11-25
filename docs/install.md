@@ -2,7 +2,7 @@
 
 [Home](../README.md) · English · [Русский](install.ru.md)
 
-HFOC OS starts from a BIOS or UEFI boot image on an x86-64 machine. The public source and image package is still being prepared.
+HFOC OS starts from a BIOS or UEFI boot image on an x86-64 machine. Download the generic ISO and `SHA256SUMS.txt` from [release v1.0.0](https://github.com/EdgarMisyukov/hfoc-os-public/releases/tag/v1.0.0). Check the ISO against the corresponding entry before booting.
 
 ## Try the release ISO in QEMU
 

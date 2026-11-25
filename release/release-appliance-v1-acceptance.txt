@@ -1,0 +1,66 @@
+appliance_v1_acceptance_version=1
+target_release_id=HFOC-APPLIANCE-V1
+check_count=9
+
+# Immutable release profile descriptor.
+check_1_id=RELEASE_PROFILE-001
+check_1_category=RELEASE_PROFILE
+check_1_name=release-profile-descriptor
+check_1_target=test-release-profile-host
+check_1_marker=Release profile host tests: ALL OK
+
+# Reproducible build-input manifest.
+check_2_id=BUILD_INPUT-001
+check_2_category=BUILD_INPUT
+check_2_name=build-input-manifest
+check_2_target=test-build-input-manifest-host
+check_2_marker=Build input manifest host test: OK
+
+# Reproducible image comparison.
+check_3_id=REPRODUCIBILITY-001
+check_3_category=REPRODUCIBILITY
+check_3_name=reproducible-image-comparison
+check_3_target=test-reproducible-image-host
+check_3_marker=Reproducible image comparison: OK
+
+# Release artifact manifest verification.
+check_4_id=ARTIFACT_MANIFEST-001
+check_4_category=ARTIFACT_MANIFEST
+check_4_name=release-artifact-and-license-manifest
+check_4_target=test-release-artifact-host
+check_4_marker=Release artifact manifest verification: OK
+
+# Release upgrade matrix verification.
+check_5_id=UPGRADE_MATRIX-001
+check_5_category=UPGRADE_MATRIX
+check_5_name=release-upgrade-matrix
+check_5_target=test-release-upgrade-matrix
+check_5_marker=Release upgrade matrix verification: OK
+
+# Release backup/restore matrix verification.
+check_6_id=BACKUP_RESTORE_MATRIX-001
+check_6_category=BACKUP_RESTORE_MATRIX
+check_6_name=release-backup-restore-matrix
+check_6_target=test-release-backup-restore-matrix
+check_6_marker=Release backup/restore matrix verification: OK
+
+# Release security baseline.
+check_7_id=SECURITY_BASELINE-001
+check_7_category=SECURITY_BASELINE
+check_7_name=release-security-baseline
+check_7_target=test-release-security-baseline
+check_7_marker=Release security baseline: OK
+
+# Release operational baseline.
+check_8_id=OPERATIONAL_BASELINE-001
+check_8_category=OPERATIONAL_BASELINE
+check_8_name=release-operational-baseline
+check_8_target=test-release-operational-baseline
+check_8_marker=Release operational baseline: OK
+
+# Appliance v1 disaster-recovery rehearsal.
+check_9_id=DISASTER_RECOVERY-001
+check_9_category=DISASTER_RECOVERY
+check_9_name=disaster-recovery-rehearsal
+check_9_target=test-release-disaster-recovery-rehearsal
+check_9_marker=Appliance v1 disaster-recovery rehearsal: OK

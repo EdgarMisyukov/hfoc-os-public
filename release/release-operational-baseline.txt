@@ -1,0 +1,75 @@
+release_operational_baseline_version=1
+target_release_id=HFOC-APPLIANCE-V1
+check_count=14
+
+# Boot policy persistence.
+check_1_id=BOOT-001
+check_1_category=BOOT
+check_1_name=boot-policy-persistence
+check_1_target=test-boot-policy-host
+
+# State schema registry and migration transaction.
+check_2_id=STATE-001
+check_2_category=STATE
+check_2_name=state-schema-registry
+check_2_target=test-state-schema-host
+check_3_id=STATE-002
+check_3_category=STATE
+check_3_name=state-migration-transaction
+check_3_target=test-state-migration-host
+
+# Service dependency validation and supervisor lifecycle.
+check_4_id=SERVICES-001
+check_4_category=SERVICES
+check_4_name=service-dependency-validation
+check_4_target=test-service-dependency-host
+check_5_id=SERVICES-002
+check_5_category=SERVICES
+check_5_name=service-supervisor-lifecycle
+check_5_target=test-service-supervisor-host
+
+# Storage and service health contracts.
+check_6_id=HEALTH-001
+check_6_category=HEALTH
+check_6_name=storage-health-contract
+check_6_target=test-storage-health-host
+check_7_id=HEALTH-002
+check_7_category=HEALTH
+check_7_name=service-health-aggregation
+check_7_target=test-service-health-host
+
+# Support-bundle manifest and export boundaries.
+check_8_id=SUPPORT_BUNDLE-001
+check_8_category=SUPPORT_BUNDLE
+check_8_name=support-bundle-manifest
+check_8_target=test-support-bundle-manifest-host
+check_9_id=SUPPORT_BUNDLE-002
+check_9_category=SUPPORT_BUNDLE
+check_9_name=support-bundle-export
+check_9_target=test-support-bundle-exporter-host
+
+# Update preflight and failure recovery.
+check_10_id=UPDATE-001
+check_10_category=UPDATE
+check_10_name=candidate-preflight-boundary
+check_10_target=test-candidate-preflight-host
+check_11_id=UPDATE-002
+check_11_category=UPDATE
+check_11_name=update-failure-recovery
+check_11_target=test-update-failure-drill-host
+
+# Recovery image selection and power-cycle continuity.
+check_12_id=RECOVERY-001
+check_12_category=RECOVERY
+check_12_name=recovery-image-selection
+check_12_target=test-recovery-image-host
+check_13_id=RECOVERY-002
+check_13_category=RECOVERY
+check_13_name=power-cycle-continuity
+check_13_target=test-power-cycle-continuity-drill-host
+
+# QEMU boot-policy liveness proof.
+check_14_id=QEMU_LIVENESS-001
+check_14_category=QEMU_LIVENESS
+check_14_name=qemu-liveness
+check_14_target=test-release-operational-qemu-liveness

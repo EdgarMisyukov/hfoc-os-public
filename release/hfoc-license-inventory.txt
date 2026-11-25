@@ -1,0 +1,47 @@
+hfoc_license_inventory_version=1
+appliance_component=HFOC Appliance OS
+appliance_license=AGPL-3.0-only OR LicenseRef-HFOC-Commercial
+appliance_license_notice=AGPL-3.0-only.txt
+appliance_licensing_terms=LICENSING.md
+appliance_commercial_terms=COMMERCIAL-LICENSING.md
+payload_manifest=LICENSES.sha256
+payload_root=licenses
+dependency_count=4
+
+# lwIP is vendored unmodified under third_party/lwip/ and ships its own
+# BSD-3-Clause notice in the license payload.
+dependency_1_id=lwip
+dependency_1_component=lwIP
+dependency_1_version=STABLE-2_2_1_RELEASE
+dependency_1_license=BSD-3-Clause
+dependency_1_notice=third_party/lwip/COPYING
+
+# mbedTLS is offered upstream under a disjunction. HFOC elects Apache-2.0 and
+# states that election explicitly here, in the shipped election notice and in
+# the release SBOM rows; the elected license is what the appliance ships under.
+dependency_2_id=mbedtls
+dependency_2_component=mbedTLS
+dependency_2_version=mbedtls-3.6.7
+dependency_2_license=Apache-2.0
+dependency_2_license_offered=Apache-2.0 OR GPL-2.0-or-later
+dependency_2_election=Apache-2.0
+dependency_2_notice=third_party/mbedtls/LICENSE
+dependency_2_election_notice=notices/mbedtls-Apache-2.0-election.txt
+
+# Limine is redistributed as a pinned binary release with its own notice set.
+dependency_3_id=limine
+dependency_3_component=Limine
+dependency_3_version=12.3.2
+dependency_3_license=BSD-2-Clause
+dependency_3_notice=third_party/limine/COPYING
+
+# The console glyphs are the Debian console-setup Fixed 8x16 pictures from
+# CyrSlav-Fixed16.psf.gz. The package states console fonts are public domain
+# by nature; the 8x16 source BDF carries the Sony/BIZNET/Dmitry permission
+# notice, shipped verbatim in the notice file. The rows are generated into the
+# kernel, not imported as a third_party binary.
+dependency_4_id=console-setup-font
+dependency_4_component=Debian console-setup Fixed 8x16 console font
+dependency_4_version=console-setup-linux CyrSlav-Fixed16.psf.gz (2025-10-19)
+dependency_4_license=LicenseRef-HFOC-Console-Fixed8x16
+dependency_4_notice=notices/console-font-fixed8x16.txt

@@ -1,0 +1,30 @@
+# Результаты сборки
+/build/
+/deps
+
+# Образы и бинарные файлы
+*.iso
+*.elf
+*.o
+*.d
+*.sha256
+!third_party/LOCKS.sha256
+!third_party/LICENSE-DOCUMENTS.sha256
+# ITEM-387: the check-suite modules in scripts/check.d/ are tracked sources; the
+# *.d rule above targets compiler dependency files, not this directory.
+!scripts/check.d/
+
+# Диагностика QEMU
+*.log
+*.trace
+
+# Временные файлы редакторов
+*~
+*.swp
+
+# Python-кэш
+__pycache__/
+*.pyc
+*.swo
+.vscode/
+.idea/

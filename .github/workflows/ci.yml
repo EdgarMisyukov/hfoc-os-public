@@ -1,0 +1,329 @@
+name: HFOC OS CI
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hfoc-ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: [self-hosted, Linux, X64, hfoc-qemu]
+    # ITEM-513: raised from 60 to 75 minutes.  The item added a bounded QEMU
+    # boot to the acceptance phase (the panel language proof: one more QEMU
+    # guest and nine TLS connections inside the existing
+    # `test-production-service-https-qemu`), and run 38027017135 measured the
+    # phase finishing all of its work at 58m43s - end-to-end acceptance OK -
+    # before the 60-minute job clock killed it during evidence collection.
+    # ITEM-584: raised to 90 minutes so the post-merge exclusive wait (75
+    # minutes, the acceptance job's own bound) plus the static phase still
+    # fits; the 2026-11-01 post-merge run timed out behind a 47-minute
+    # acceptance phase.  The bound only stops a hung run; every assertion is
+    # unchanged and both phases still run in full.
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        phase: [static-host, acceptance-qemu]
+    # All runners share one 12 CPU / 15 GiB host. The group is per phase, and
+    # pull-request and manual-dispatch runs share it, so at most one static-host
+    # and one acceptance-qemu phase of those runs are live anywhere at the same
+    # time: the measured-good pair (HFOC_HOST_JOBS=6 next to
+    # HFOC_ACCEPTANCE_JOBS=2 / HFOC_QEMU_JOBS=4, about 12 build jobs plus 4 QEMU
+    # guests on 12 CPUs). The two phases of one run stay independent because
+    # they are different groups, so the intra-run split keeps its 15-20 min band
+    # instead of the 30.5 min a single job takes. The 2026-09-10 timeouts came
+    # from three concurrent phases with HFOC_*_JOBS=8 (up to 24 build jobs plus
+    # QEMU guests), not from the split itself.
+    #
+    # Main pushes are isolated in their own group on purpose. Job-level
+    # concurrency queues, and GitHub cancels a previously *pending* job when a
+    # newer one is queued in the same group (measured on 2026-09-11: a pending
+    # dispatch was cancelled by the next arrival). Post-merge CI is a merge gate,
+    # so it must never be the job that a later arrival replaces. A main push runs
+    # only ShellCheck (under a host-wide lock) and make check: one bounded job of
+    # about 2.5 min, which may overlap a heavy phase without recreating the
+    # oversubscription the split removed.
+    concurrency:
+      group: hfoc-verify-${{ matrix.phase }}-${{ github.event_name == 'push' && 'main' || 'pr' }}
+      cancel-in-progress: false
+    env:
+      EXPECTED_PIC0_IMR: ${{ github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'ci-negative-test') && '00' || 'fc' }}
+      EXPECTED_PIC1_IMR: ff
+      # Two phases run in parallel: static-host never starts QEMU, and
+      # acceptance-qemu runs the acceptance gates and the QEMU suite one after
+      # another. These counts are the values proven stable on this host; do not
+      # raise them without a host-wide measurement.
+      HFOC_HOST_JOBS: "6"
+      HFOC_QEMU_JOBS: "4"
+      HFOC_ACCEPTANCE_JOBS: "2"
+      HFOC_IMAGE_JOBS: "4"
+      # The production end-to-end acceptance gate harvests the QEMU evidence
+      # produced by this same job after the suite directory is reset below, so
+      # a stale run can never satisfy a stage.
+      HFOC_QEMU_SUITE_ARTIFACT_DIR: "build/test-artifacts/qemu-suite"
+      HFOC_PRODUCTION_ACCEPTANCE_HARVEST_DIR: "build/test-artifacts/qemu-suite"
+      # ITEM-379: a stable report path so the machine-readable acceptance report
+      # is uploaded even when the gate rejects.
+      HFOC_PRODUCTION_ACCEPTANCE_ARTIFACT_DIR: "build/test-artifacts/production-end-to-end-acceptance"
+      # Faster rebuilds: ccache persists across runs on the self-hosted runner.
+      # The compiler stays plain gcc; ccache is injected through a PATH
+      # masquerade so a multi-word CC never reaches build-input-manifest.sh.
+      CCACHE_DIR: "/var/cache/ccache-hfoc"
+      CCACHE_PATH: "/usr/bin:/bin"
+      CCACHE_MAXSIZE: "10G"
+      CCACHE_COMPRESS: "true"
+      # ITEM-462: the diagnostics artifact is bounded.  The collector keeps at
+      # most this many bytes of text evidence, and the cleanup removes
+      # test-artifact directories older than the retention.  The measured
+      # before/after (4.1 GiB of artifacts, ~481 MiB per run) is in
+      # docs/ci-self-hosted-runner.md.
+      # ITEM-586: timing records carry the tested tree SHA (the merge SHA of a
+      # pull request, which is what was built) and the PR head/base separately,
+      # so a comparison never has to guess which commit a duration belongs to.
+      HFOC_CI_TREE_SHA: ${{ github.sha }}
+      HFOC_CI_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+      HFOC_CI_BASE_SHA: ${{ github.event.pull_request.base.sha || '' }}
+      HFOC_CI_DIAGNOSTICS_BUDGET_BYTES: "33554432"
+      HFOC_CI_ARTIFACT_RETENTION_DAYS: "7"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Install system dependencies
+        if: runner.environment == 'github-hosted'
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y \
+            build-essential binutils curl ca-certificates file xorriso \
+            qemu-system-x86 python3 shellcheck ccache
+
+      - name: Show tool versions
+        run: |
+          gcc --version | head -n 1
+          ld --version | head -n 1
+          make --version | head -n 1
+          qemu-system-x86_64 --version | head -n 1
+          xorriso --version | head -n 1
+          python3 --version
+
+      - name: CCache
+        run: |
+          ccache --version | head -n 1
+          ccache -z
+          masquerade="$RUNNER_TEMP/ccache-masquerade"
+          mkdir -p "$masquerade"
+          for tool in gcc cc g++ c++; do
+            ln -sf "$(command -v ccache)" "$masquerade/$tool"
+          done
+          echo "$masquerade" >> "$GITHUB_PATH"
+          echo "ccache masquerade: $masquerade"
+
+      # Overlap record: the phase start and end are printed so a reader can
+      # prove from the log alone that no two phases of the same kind were live
+      # at once. The queue wait of a phase is run.createdAt (API) minus the
+      # start_utc recorded here.
+      - name: Phase record start
+        run: |
+          heavy=none
+          if [[ "${{ matrix.phase }}" == 'static-host' ]]; then
+            heavy=shellcheck,check
+          fi
+          if [[ "${{ github.event_name }}" == 'pull_request' ||
+                "${{ github.event_name }}" == 'workflow_dispatch' ]]; then
+            if [[ "${{ matrix.phase }}" == 'static-host' ]]; then
+              heavy=shellcheck,check,host-suite
+            else
+              heavy=acceptance,qemu-suite
+            fi
+          fi
+          start_epoch=$(date -u +%s)
+          echo "HFOC_PHASE_START_EPOCH=$start_epoch" >> "$GITHUB_ENV"
+          printf 'HFOC_PHASE_RECORD phase=%s event=%s runner=%s heavy=%s start_utc=%s start_epoch=%s\n' \
+            "${{ matrix.phase }}" "${{ github.event_name }}" \
+            "${RUNNER_NAME:-unknown}" "$heavy" \
+            "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$start_epoch"
+
+      - name: Clean
+        run: make clean
+
+      # ITEM-462: the runner keeps every run's QEMU evidence, and the raw disk
+      # images under build/test-artifacts are what grew to 16 GiB.  The
+      # cleanup is bounded - immediate subdirectories older than the
+      # retention - and publishes what it removed, so the growth is visible
+      # instead of silent.  It is not heavy work and stays outside the lock.
+      - name: Clean old test artifacts
+        if: ${{ always() }}
+        run: |
+          scripts/hfoc-ci-artifacts.sh cleanup \
+            --root build/test-artifacts \
+            --days "${HFOC_CI_ARTIFACT_RETENTION_DAYS}"
+
+      # ITEM-370A: the whole heavy body of each phase runs under the host-wide
+      # heavy lock in shared mode. The two phases are shared holders, so the
+      # measured-good parallel pair is preserved, while a local heavy build
+      # (the worker's own make runs, exclusive mode) waits for a live phase
+      # instead of overlapping it. The bodies live in scripts/ so the lock
+      # covers one continuous section per phase.
+      - name: HFOC heavy phase static-host
+        if: matrix.phase == 'static-host' && github.event_name != 'push'
+        run: scripts/hfoc-heavy-lock.sh ci-shared static-host -- scripts/ci-static-host-phase.sh
+
+      # ITEM-425: a post-merge run is the same heavy work, and it used to be a
+      # shared holder beside a live pull-request phase. On 2026-09-16 that cost
+      # two acceptance phases of one pull request: `test-lapic-timer-oneshot`,
+      # `test-pic-disable` and `test-console-history` all expired inside their
+      # own marker deadlines while a post-merge `make check` was running on this
+      # host, and the retry rule was spent on the first of them. The post-merge
+      # phase asks for the lock exclusively now, so it waits for a live phase
+      # and a live phase waits for it, and the host never carries twelve build
+      # jobs next to six QEMU guests again.
+      - name: HFOC heavy phase postmerge
+        if: matrix.phase == 'static-host' && github.event_name == 'push'
+        run: scripts/hfoc-heavy-lock.sh ci-exclusive postmerge -- scripts/ci-static-host-phase.sh
+
+      - name: HFOC heavy phase acceptance-qemu
+        if: matrix.phase == 'acceptance-qemu' && (github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch')
+        run: scripts/hfoc-heavy-lock.sh ci-shared acceptance-qemu -- scripts/ci-acceptance-qemu-phase.sh
+
+      - name: QEMU latency summary
+        if: ${{ always() && matrix.phase == 'acceptance-qemu' }}
+        run: |
+          summary=build/test-artifacts/network-resource-restart-echo-latency.txt
+          if [[ -f "$summary" ]]; then
+            cat "$summary"
+          else
+            echo "QEMU latency summary: not written"
+          fi
+
+      - name: Phase record end
+        if: ${{ always() }}
+        run: |
+          end_epoch=$(date -u +%s)
+          start_epoch=${HFOC_PHASE_START_EPOCH:-$end_epoch}
+          printf 'HFOC_PHASE_RECORD phase=%s event=%s runner=%s end_utc=%s end_epoch=%s elapsed=%ss\n' \
+            "${{ matrix.phase }}" "${{ github.event_name }}" \
+            "${RUNNER_NAME:-unknown}" \
+            "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$end_epoch" \
+            "$((end_epoch - start_epoch))"
+
+      # ITEM-585: bounded per-unit timing evidence.  The summary separates
+      # runner queue, heavy-lock wait (phase records), wrapper wall time and
+      # individual targets; a parallel sum is never presented as phase time.
+      - name: CI timings summary
+        if: ${{ always() }}
+        run: bash scripts/hfoc-ci-timings.sh summarize
+
+      - name: Upload CI timings
+        if: ${{ always() }}
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: ci-timings-${{ matrix.phase }}-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 7
+          if-no-files-found: ignore
+          path: |
+            build/test-artifacts/ci-timings/**
+            !build/test-artifacts/ci-timings/**/qemu-suite.log
+
+      - name: CCache stats
+        if: ${{ always() }}
+        run: ccache -s
+
+      - name: Git status
+        if: ${{ always() }}
+        run: git status --short
+
+      - name: Check for leaked QEMU processes
+        if: ${{ always() }}
+        run: |
+          pattern='[q]emu-system-x86_64|[t]est-resilience-matrix\.sh|[t]est-qemu-irqs\.sh|[t]est-qemu-panic\.sh|[t]est-qemu-pagefault\.sh|[t]est-qemu-doublefault\.sh|[t]est-qemu-nmi\.sh|[t]est-qemu-acpi\.sh|[t]est-qemu-vmm\.sh|[t]est-qemu-lapic\.sh|[t]est-qemu-ioapic-probe\.sh|[t]est-qemu-ioapic-irq0\.sh|[t]est-qemu-ioapic-irq1\.sh|[t]est-qemu-pic-irq0-masking\.sh|[t]est-qemu-pic-irq0-masking-fallback\.sh|[t]est-qemu-lapic-timer-calibration\.sh|[t]est-qemu-lapic-timer-runtime\.sh|[t]est-qemu-lapic-timer-oneshot\.sh|[t]est-qemu-keyboard-line-editing\.sh|[t]est-qemu-console-history\.sh|[t]est-qemu-pic-disable\.sh|[t]est-qemu-scheduler-yield\.sh|[t]est-qemu-scheduler-tick\.sh|[t]est-qemu-scheduler-wait\.sh|[t]est-qemu-scheduler-stress\.sh|[t]est-qemu-process-scheduler\.sh|[t]est-qemu-user-iretq\.sh|[t]est-qemu-syscall\.sh|[t]est-qemu-user-init\.sh|[t]est-qemu-boot-policy-regression\.sh|[t]est-qemu-block-device\.sh|[t]est-qemu-data-region\.sh|[t]est-qemu-block-cache\.sh|[t]est-qemu-config-journal\.sh|[t]est-qemu-persistent-config\.sh|[t]est-qemu-persistent-config-reboot-acceptance\.sh|[t]est-qemu-backup-restore\.sh|[t]est-qemu-supervisor-composition\.sh|[t]est-qemu-local-control\.sh|[t]est-qemu-network-foundation\.sh|[t]est-qemu-production-network\.sh|[t]est-qemu-production-dhcp-dns\.sh|[t]est-qemu-production-first-boot\.sh|[t]est-qemu-production-service-https\.sh|[t]est-qemu-production-sni-selection\.sh|[t]est-qemu-virtio-foundation\.sh|[t]est-qemu-virtio-net-frame\.sh|[t]est-qemu-packet-boundary\.sh|[t]est-qemu-arp-icmp\.sh|[t]est-qemu-tcp-listener\.sh|[t]est-qemu-network-resource\.sh|[t]est-qemu-tls\.sh|[t]est-qemu-https-service\.sh|[t]est-qemu-management-plane-acceptance\.sh|[t]est-qemu-https-response-matrix\.sh|[t]est-qemu-https-malformed-request-matrix\.sh|[t]est-qemu-https-size-boundary-matrix\.sh|[t]est-qemu-https-exhaustion-matrix\.sh|[t]est-qemu-https-restart-soak\.sh|[t]est-qemu-entropy-fail-closed-matrix\.sh|[t]est-certificate-fail-closed-matrix\.sh|[t]est-production-artifact-secret-gate\.sh|[t]est-qemu-trust-policy\.sh|[t]est-qemu-update-lifecycle\.sh|[t]est-qemu-supportability\.sh|[t]est-qemu-accounting-boundary\.sh|[t]est-qemu-storage-interruption\.sh|[t]est-qemu-service-cascade-drill\.sh|[t]est-qemu-local-control-outage-drill\.sh|[t]est-qemu-network-partition-drill\.sh|[t]est-qemu-trust-failure-drill\.sh|[t]est-qemu-update-failure-drill\.sh|[t]est-qemu-integration-replay-outage-drill\.sh|[t]est-qemu-power-cycle-continuity-drill\.sh|[t]est-qemu-entropy\.sh|[t]est-qemu-host-provisioned-entropy\.sh|[t]est-qemu-efi-ovmf\.sh|[t]est-qemu-hfoc-efi-installer\.sh'
+          # Scope the check to this job's own cgroup: the phases run
+          # concurrently and a host-global pgrep would see another phase's
+          # QEMU and runner processes. The check fails closed: if the cgroup
+          # cannot be resolved or read, the job fails instead of silently
+          # reporting zero leaked processes.
+          cg=$(awk -F: '/^0::/ {print $3}' /proc/self/cgroup)
+          procs=/sys/fs/cgroup"$cg"/cgroup.procs
+          if [[ -z "$cg" ]]; then
+            echo 'leaked-QEMU check could not resolve the job cgroup' >&2
+            exit 1
+          fi
+          if [[ ! -r "$procs" ]]; then
+            echo "leaked-QEMU check cannot read $procs" >&2
+            exit 1
+          fi
+          echo "leaked-QEMU check scanning $procs"
+          leaked=0
+          while read -r pid; do
+            [[ -n "$pid" ]] || continue
+            cmd=$(tr '\0' ' ' < /proc/"$pid"/cmdline 2>/dev/null || true)
+            if grep -Eq "$pattern" <<<"$cmd"; then
+              echo "leaked: $cmd"
+              leaked=1
+            fi
+          done < "$procs"
+          if (( leaked != 0 )); then
+            echo 'QEMU test process leaked after the test.'
+            exit 1
+          fi
+          echo 'Remaining QEMU test processes: 0'
+
+      - name: Upload production acceptance report
+        if: ${{ always() && matrix.phase == 'acceptance-qemu' }}
+        # The report is evidence for a human, not a verification gate: the
+        # `HFOC heavy phase acceptance-qemu` step above already decides the
+        # job.  On 2026-09-20 the GitHub Actions artifact quota for the whole
+        # account was full (the repository itself held ~0.1 MB), so a green
+        # acceptance phase was marked red by this upload alone.  The upload is
+        # still attempted and its failure still appears in the log.
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: hfoc-production-acceptance-report-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 14
+          if-no-files-found: warn
+          path: build/test-artifacts/production-end-to-end-acceptance/**
+
+      # ITEM-462: diagnostics stay small and useful.  The collector stages the
+      # phase's text evidence under build/ci-diagnostics (logs, summaries,
+      # `*.txt`, `*.sha256`, a bounded tail of each large file) and names every
+      # raw image or ISO it excluded, so the artifact is one bounded snapshot
+      # instead of the 16 GiB test-artifact tree.  The exclusions are repeated
+      # in the upload so a future path edit cannot silently drop them.
+      - name: Collect CI diagnostics
+        if: ${{ failure() || cancelled() }}
+        continue-on-error: true
+        run: |
+          scripts/hfoc-ci-artifacts.sh collect \
+            --root build/test-artifacts \
+            --dest build/ci-diagnostics \
+            --budget-bytes "${HFOC_CI_DIAGNOSTICS_BUDGET_BYTES}" \
+            --since "${HFOC_PHASE_START_EPOCH:-0}"
+
+      - name: Upload diagnostics
+        if: ${{ failure() || cancelled() }}
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: hfoc-ci-diagnostics-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 7
+          if-no-files-found: warn
+          path: |
+            build/ci-diagnostics/**
+            !**/*.raw
+            !**/*.img
+            !build/hfoc-os-*.iso

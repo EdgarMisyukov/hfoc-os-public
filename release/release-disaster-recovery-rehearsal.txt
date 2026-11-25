@@ -1,0 +1,38 @@
+release_disaster_recovery_rehearsal_version=1
+target_release_id=HFOC-APPLIANCE-V1
+check_count=5
+
+# Clean-image boot and boot-policy regression proof.
+check_1_id=CLEAN_IMAGE-001
+check_1_category=CLEAN_IMAGE
+check_1_name=clean-image-boot
+check_1_target=test-boot-policy-regression
+check_1_marker=QEMU boot policy regression test: OK
+
+# Backup/restore acceptance proof.
+check_2_id=RESTORE-001
+check_2_category=RESTORE
+check_2_name=backup-restore-recovery
+check_2_target=test-backup-restore-qemu
+check_2_marker=QEMU backup-restore test: OK
+
+# Service-cascade recovery drill.
+check_3_id=SERVICE_RECOVERY-001
+check_3_category=SERVICE_RECOVERY
+check_3_name=service-cascade-recovery
+check_3_target=test-service-cascade-drill-qemu
+check_3_marker=QEMU service cascade drill test: OK
+
+# Accounting-boundary integration handshake proof.
+check_4_id=INTEGRATION_HANDSHAKE-001
+check_4_category=INTEGRATION_HANDSHAKE
+check_4_name=accounting-boundary-handshake
+check_4_target=test-accounting-boundary-qemu
+check_4_marker=QEMU accounting-boundary test: OK
+
+# Supportability/support-bundle evidence proof.
+check_5_id=SUPPORT_BUNDLE_EVIDENCE-001
+check_5_category=SUPPORT_BUNDLE_EVIDENCE
+check_5_name=support-bundle-evidence
+check_5_target=test-supportability-qemu
+check_5_marker=QEMU supportability test: OK

@@ -1,0 +1,87 @@
+hfoc_appliance_platform_release_acceptance_version=1
+target_release_id=HFOC-APPLIANCE-V1
+check_count=12
+
+# Deterministic integrated appliance boot acceptance (item 334).
+check_1_id=BOOT-334
+check_1_category=BOOT
+check_1_name=integrated-appliance-boot
+check_1_target=test-integrated-appliance-boot-acceptance-qemu
+check_1_marker=Integrated appliance boot acceptance: OK
+
+# Persistent configuration reboot acceptance (item 335).
+check_2_id=PERSISTENCE-335
+check_2_category=PERSISTENCE
+check_2_name=persistence-reboot
+check_2_target=test-persistent-config-reboot-acceptance-qemu
+check_2_marker=Persistent configuration reboot acceptance: OK
+
+# Management plane QEMU acceptance (item 336).
+check_3_id=MANAGEMENT-336
+check_3_category=MANAGEMENT
+check_3_name=management-plane
+check_3_target=test-management-plane-qemu
+check_3_marker=QEMU management plane acceptance test: OK
+
+# Integrated installer, dual-boot, and management acceptance (item 346).
+check_4_id=INSTALLER-346
+check_4_category=INSTALLER
+check_4_name=integrated-installer-acceptance
+check_4_target=test-hfoc-integrated-installer-dual-boot-management-acceptance
+check_4_marker=HFOC integrated installer/dual-boot/management acceptance gate: OK
+
+# Network configuration, diagnostics, DHCP, and DNS QEMU proof.
+check_5_id=NETWORK-306
+check_5_category=NETWORK
+check_5_name=network-config
+check_5_target=test-appliance-network-config-qemu
+check_5_marker=QEMU network config test: OK
+
+# Service manager and HTTPS service supervisor composition proof.
+check_6_id=SERVICES-311
+check_6_category=SERVICES
+check_6_name=service-supervisor
+check_6_target=test-service-supervisor-qemu
+check_6_marker=QEMU supervisor composition test: OK
+
+# HTTPS vertical-slice release gate.
+check_7_id=HTTPS-200
+check_7_category=HTTPS
+check_7_name=https-vertical-slice
+check_7_target=test-https-vertical-slice-acceptance
+check_7_marker=HTTPS vertical-slice acceptance gate: ACCEPT
+
+# Release security baseline.
+check_8_id=SECURITY-200
+check_8_category=SECURITY
+check_8_name=release-security-baseline
+check_8_target=test-release-security-baseline
+check_8_marker=Release security baseline: OK
+
+# Appliance disaster-recovery rehearsal.
+check_9_id=RECOVERY-200
+check_9_category=RECOVERY
+check_9_name=disaster-recovery-rehearsal
+check_9_target=test-release-disaster-recovery-rehearsal
+check_9_marker=Appliance v1 disaster-recovery rehearsal: OK
+
+# Update lifecycle QEMU proof.
+check_10_id=UPDATE-200
+check_10_category=UPDATE
+check_10_name=update-lifecycle
+check_10_target=test-update-lifecycle-qemu
+check_10_marker=QEMU update-lifecycle test: OK
+
+# Factory reset host proof.
+check_11_id=RESET-333
+check_11_category=RESET
+check_11_name=factory-reset
+check_11_target=test-appliance-factory-reset-host
+check_11_marker=appliance factory reset host: OK
+
+# Appliance v1 release qualification gate.
+check_12_id=RELEASE-200
+check_12_category=RELEASE
+check_12_name=appliance-v1-release
+check_12_target=test-release-appliance-v1-acceptance
+check_12_marker=Appliance v1 acceptance gate: ACCEPT

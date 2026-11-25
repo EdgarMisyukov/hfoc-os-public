@@ -1,0 +1,109 @@
+# HFOC OS trademark and certified-build policy, machine-readable form of
+# docs/hfoc-trademark-and-certified-build-policy.md.
+#
+# Sections, by key prefix: policy, marks, permitted_use, prohibited_use,
+# certified_label, redistribution, community_build, legal. The key set below is
+# complete: scripts/verify-trademark-policy.sh refuses an unknown section, an
+# unknown key, a missing section, a missing field and any value that weakens a
+# load-bearing claim.
+#
+# ITEM-383 does not require any ITEM-380 artefact to exist: it declares which
+# release-gate artefacts a certified-build label must reference. The release
+# gate owns their exact names and formats, and
+# policy_certified_build_published records the honest current state - this
+# repository publishes no certified build.
+
+policy_version=1
+policy_target_release_id=HFOC-APPLIANCE-V1
+policy_document=docs/hfoc-trademark-and-certified-build-policy.md
+policy_verifier=scripts/verify-trademark-policy.sh
+policy_release_gate_item=ITEM-380
+policy_release_gate_artifacts=SBOM, reproducible image digest, release gate report, acceptance report
+policy_certified_build_published=false
+
+# The asserted marks: word marks for the project and the appliance line, and the
+# certification mark that only a labelled build may carry.
+marks_project_name=HFOC OS
+marks_project_form=word mark for the project and the unmodified distribution
+marks_appliance_name=HFOC Appliance
+marks_appliance_form=word mark for the appliance product line built from this repository
+marks_certification_name=HFOC Certified
+marks_certification_form=certification mark for a build that carries a valid certified-build label
+marks_owner=the HFOC OS project owner
+marks_registration_claimed=false
+
+# Permitted use: nominative reference, unmodified AGPL redistribution, and an
+# OEM or integrator inside an executed agreement.
+permitted_use_project_reference=referring to the project by name in text with an accurate statement of the build identity
+permitted_use_community_redistribution=redistributing an unmodified build under AGPL-3.0-only with the licence notices and the corresponding source
+permitted_use_agreement_scope=an OEM or integrator acting inside the scope of an executed commercial agreement
+permitted_use_boundary=every other use of a mark needs written permission from the owner
+
+# Prohibited use, answer one of the policy: what nobody may do with the marks.
+prohibited_use_mark_in_name=using any HFOC mark in a company, product, domain or package name without an executed agreement
+prohibited_use_certification_mark_without_label=applying the certification mark to a build that has no valid certified-build label
+prohibited_use_community_certification_claim=claiming or implying that a community or modified build is certified
+prohibited_use_implied_endorsement=implying endorsement, sponsorship, partnership or support that does not exist
+prohibited_use_attribution_removal=removing or obscuring HFOC attribution, licence notices or the build identity
+
+# Certified-build label, answer two of the policy: the fields the label
+# carries, the vendor duties, the audit steps and the invalidity rules.
+certified_label_release_id=the release profile the image belongs to, HFOC-APPLIANCE-V1
+certified_label_source_revision=the exact git revision the image was built from
+certified_label_image_sha256=the SHA-256 digest of the image, identical on an independent rebuild
+certified_label_release_gate_report=the release gate report published by ITEM-380 for this build
+certified_label_sbom_digest=the digest of the SBOM of this exact build
+certified_label_acceptance_report=the appliance end-to-end acceptance report and its gate verdict
+certified_label_signer_anchor=the release trust anchor that signed the label and the boot chain
+certified_label_issued_by=the vendor or the project owner that issued the label under an executed agreement
+certified_label_registry=the certification registry entry that lists the issued label
+certified_label_producer_revision=build only from the revision the release gate accepted
+certified_label_producer_reproduce=produce the image so an independent rebuild yields the recorded digest
+certified_label_producer_publish=publish the SBOM, the release gate report and the acceptance report the label references
+certified_label_producer_sign=sign the label with the release trust anchor whose private half stays offline
+certified_label_producer_record=record the issued label in the certification registry before the build is sold
+certified_label_verify_digest=recompute the image SHA-256 and compare it with the label and the release gate report
+certified_label_verify_revision=compare the label source revision with the release gate report and the boot attestation
+certified_label_verify_artifacts=resolve the SBOM and the acceptance report the label references and verify their digests
+certified_label_verify_signature=verify the label signature against the release trust anchor and the registry entry
+certified_label_invalid_digest=the recomputed image digest differs from the label
+certified_label_invalid_gate=the release gate report is missing, is for another build, or its verdict is not a complete pass
+certified_label_invalid_modification=the build was modified, rebuilt or relabelled after the label was issued without a new record
+certified_label_invalid_artifacts=the SBOM or the acceptance report the label references is missing or has a different digest
+certified_label_invalid_no_record=the label is not listed in the certification registry or the registry entry was withdrawn
+
+# OEM and integrator redistribution, answer three of the policy: what may be
+# redistributed and which obligations travel with the redistributed build.
+redistribution_requires_written_agreement=true
+redistribution_community_basis=AGPL-3.0-only
+redistribution_commercial_basis=LicenseRef-HFOC-Commercial
+redistribution_may_redistribute=binaries built from the licensed revision inside the scope of the executed agreement
+redistribution_mark_use=agreement_only
+redistribution_obligation_licence_payload=ship the verified licence payload with LICENSES.sha256 unchanged
+redistribution_obligation_notices=keep every third-party notice and the licence inventory of the shipped dependencies
+redistribution_obligation_identity=disclose the exact release id, the source revision and every modification
+redistribution_obligation_sbom=publish the SBOM of the redistributed build
+redistribution_obligation_source=offer the corresponding source of the exact built binaries under their declared licence
+redistribution_obligation_pass_through=pass these obligations to every further recipient
+redistribution_obligation_support=make no support, warranty or SLA claim unless the agreement grants it
+
+# Community build, answer four of the policy: what an AGPL-3.0-only build may
+# claim and what it must not claim.
+community_build_licence=AGPL-3.0-only
+community_build_may_claim_certified_build=false
+community_build_may_claim_vendor_support=false
+community_build_may_claim_official_update_channel=false
+community_build_mark_use=nominative_fair_use_only
+community_build_obligation_source=offer the complete corresponding source under AGPL-3.0-only
+community_build_obligation_notices=keep the copyright, licence and modification notices and state that the build is unofficial
+community_build_prohibition_certified_claim=must not claim to be a certified build, carry the certification mark or quote a certified-build label
+community_build_prohibition_support_claim=must not claim vendor support, warranty, an SLA or an official update channel
+community_build_prohibition_mark_use=must not use the HFOC marks beyond nominative fair use and never the certification mark
+community_build_prohibition_identity=must not present a modified build as the unmodified HFOC OS distribution
+
+# Legal status: this policy is not legal advice, and the executed agreement is
+# the binding instrument for an OEM or integrator.
+legal_advice=false
+legal_binding_instrument=COMMERCIAL-LICENSING.md
+legal_agreement_precedence=the executed commercial agreement, not this policy, is the binding instrument for an OEM or integrator
+legal_review_required=true

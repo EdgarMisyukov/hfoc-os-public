@@ -1,0 +1,82 @@
+Console font assets used by the HFOC 8x16 console glyph table
+==================================================================
+
+Source: Debian console-setup-linux, CyrSlav-Fixed16.psf.gz (PSF1 8x16),
+byte-identical to /etc/console-setup/cached_CyrSlav-Fixed16.psf.gz.
+Package: console-setup-linux. Extracted on 2026-11-17 by gen_font8x16.py.
+Only the glyph pictures for ASCII, Cyrillic, and the listed punctuation
+were converted; no font binary or PSF table is shipped.
+
+All console fonts are public domain by nature.  The copiright terms of
+the source BDF-fonts in the directory Fonts/bdf of the source package
+follow.
+
+== u_vga16.bdf
+
+Copyright © 2000, 2001 by Dmitry Bolkhovityanov.  All Rights Reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is fur-
+nished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FIT-
+NESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
+XFREE86 PROJECT BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CON-
+NECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Except as contained in this notice, the name of Dmitry Bolkhovityanov
+shall not be used in advertising or otherwise to promote the sale, use
+or other dealings in this Software without prior written authorization
+from the Dmitry Bolkhovityanov.
+
+
+== 7x14B.bdf 7x14Bc.bdf 7x14.bdf 7x14B-IL2.bdf 7x14c.bdf 7x14-IL2.bdf
+   8x13B.bdf 8x13Bc.bdf 8x13.bdf 8x13c.bdf 8x13-IL2.bdf 8x13O.bdf
+   9x15B.bdf 9x15Bc.bdf 9x15.bdf 9x15c.bdf 9x15B-IL2.bdf 9x15-IL2.bdf
+   9x18B.bdf 9x18.bdf etl14-unicode.bdf etl16-unicode.bdf
+   etl24-unicode.bdf
+
+Public domain.  Donated (in unspecified order) by H. Kagotani
+<kagotani@cs.titech.ac.jp>, BIZNET Poland, Inc., Dmitry
+Yu. Bolkhovityanov <bolkhov@inp.nsk.su>, Thomas Bagli
+<pyramid!pcsbst!tom@uunet.UU.NET>, PCS Computer Systeme - West
+Germany, Takahashi N. <ntakahas@etl.go.jp>, Mark J. Reed
+<mark_reed@sware.com>, P. Peterlin
+<primoz.peterlin@biofiz.mf.uni-lj.si>, Mark Leisher
+<mleisher@crl.nmsu.edu>, Roman Czyborra <czyborra@cs.tu-berlin.de>,
+Kosta Kostis <kosta@live.robin.de> and others.
+
+== 8x16-IL2.bdf 8x16c.bdf
+
+Copyright 1987, 1988, 1989 by Sony Corp.
+Copyright 1996 BIZNET Poland, Inc.
+Copyright 2000 by Dmitry Yu. Bolkhovityanov, bolkhov@inp.nsk.su
+
+Permission to use, copy, modify, and distribute this software and
+its documentation for any purpose and without fee is hereby granted,
+provided that the above copyright notices appear in all copies and
+that both those copyright notices and this permission notice appear
+in supporting documentation, and that the name of Sony Corp.
+not be used in advertising or publicity pertaining to distribution
+of the software without specific, written prior permission.  Sony
+Corp. makes no representations about the suitability of this
+software for any purpose.  It is provided "as is" without express or
+implied warranty.
+
+SONY DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS
+SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS, IN NO EVENT SHALL SONY BE LIABLE FOR ANY
+SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER
+RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF
+CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN
+CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+== h14.bdf, h14_b.bdf, h16.bdf, h16_b.bdf, h24.bdf, h24_b.bdf

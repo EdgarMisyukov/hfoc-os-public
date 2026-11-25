@@ -1,0 +1,115 @@
+hfoc_integrated_installer_dual_boot_management_acceptance_version=1
+target_release_id=HFOC-APPLIANCE-V1
+check_count=16
+
+# Installer architecture and storage-safety audit (item 338).
+check_1_id=ARCHITECTURE_AUDIT-338
+check_1_category=ARCHITECTURE_AUDIT
+check_1_name=installer-architecture-audit
+check_1_target=test-item-338-installer-architecture-audit-host
+check_1_marker=Item 338 installer architecture audit test: OK
+
+# Read-only hardware and existing OS discovery (item 339).
+check_2_id=HARDWARE_DISCOVERY-339
+check_2_category=HARDWARE_DISCOVERY
+check_2_name=hardware-os-discovery
+check_2_target=test-installer-hardware-discovery-host
+check_2_marker=Installer discovery host test: OK
+
+# Clean whole-disk and manual installer layout (item 340).
+check_3_id=INSTALLER_LAYOUT-340
+check_3_category=INSTALLER_LAYOUT
+check_3_name=clean-installer-layout
+check_3_target=test-installer-layout-host
+check_3_marker=Installer layout host test: OK
+
+# Linux and Windows dual-boot planning and menu records (item 341).
+check_4_id=DUAL_BOOT-341
+check_4_category=DUAL_BOOT
+check_4_name=dual-boot-planning
+check_4_target=test-installer-dual-boot-host
+check_4_marker=Installer dual boot host test: OK
+
+# Bootloader recovery evidence and repair plans (item 342).
+check_5_id=BOOT_RECOVERY-342
+check_5_category=BOOT_RECOVERY
+check_5_name=bootloader-recovery
+check_5_target=test-installer-boot-recovery-host
+check_5_marker=Installer boot recovery host test: OK
+
+# First boot wizard control boundary (item 343).
+check_6_id=FIRST_BOOT_WIZARD-343
+check_6_category=FIRST_BOOT_WIZARD
+check_6_name=first-boot-wizard
+check_6_target=test-installer-first-boot-wizard-host
+check_6_marker=Installer first boot wizard host test: OK
+
+# Integrated normal appliance boot QEMU proof (item 334).
+check_7_id=NORMAL_BOOT-334
+check_7_category=NORMAL_BOOT
+check_7_name=normal-appliance-boot
+check_7_target=test-integrated-appliance-boot-acceptance-qemu
+check_7_marker=Integrated appliance boot acceptance: OK
+
+# Local appliance boot console QEMU proof (item 344).
+check_8_id=LOCAL_CONSOLE-344
+check_8_category=LOCAL_CONSOLE
+check_8_name=local-appliance-console
+check_8_target=test-appliance-boot-console-qemu
+check_8_marker=QEMU appliance boot console test: OK
+
+# HTTPS management API and web shell QEMU proof (items 336/345).
+check_9_id=HTTPS_MANAGEMENT-336
+check_9_category=HTTPS_MANAGEMENT
+check_9_name=https-management-plane
+check_9_target=test-management-plane-qemu
+check_9_marker=QEMU management plane acceptance test: OK
+
+# Persistent configuration reboot QEMU proof (item 335).
+check_10_id=PERSISTENT_CONFIG-335
+check_10_category=PERSISTENT_CONFIG
+check_10_name=persistent-config-reboot
+check_10_target=test-persistent-config-reboot-acceptance-qemu
+check_10_marker=Persistent configuration reboot acceptance: OK
+
+# Network configuration, DHCP, static IPv4, and DNS QEMU proof.
+check_11_id=NETWORK_CONFIG-306
+check_11_category=NETWORK_CONFIG
+check_11_name=network-config
+check_11_target=test-appliance-network-config-qemu
+check_11_marker=QEMU network config test: OK
+
+# Power-cycle continuity drill host proof.
+check_12_id=POWER_CYCLE-189
+check_12_category=POWER_CYCLE
+check_12_name=power-cycle-continuity
+check_12_target=test-power-cycle-continuity-drill-host
+check_12_marker=Power-cycle continuity drill host tests: ALL OK
+
+# Failed-network and partition handling host proof.
+check_13_id=FAILED_NETWORK-185
+check_13_category=FAILED_NETWORK
+check_13_name=network-partition-failure
+check_13_target=test-network-partition-drill-host
+check_13_marker=Network partition drill host tests: ALL OK
+
+# Abnormal HTTPS restart and lifecycle host proof.
+check_14_id=ABNORMAL_RESTART-261
+check_14_category=ABNORMAL_RESTART
+check_14_name=https-abnormal-restart
+check_14_target=test-https-service-lifecycle-host
+check_14_marker=HTTPS graceful stop and restart host test: ALL OK
+
+# Read-only appliance recovery mode host proof.
+check_15_id=RECOVERY_MODE-332
+check_15_category=RECOVERY_MODE
+check_15_name=appliance-recovery-mode
+check_15_target=test-appliance-recovery-mode-host
+check_15_marker=appliance recovery mode host: OK
+
+# Factory reset host proof.
+check_16_id=FACTORY_RESET-333
+check_16_category=FACTORY_RESET
+check_16_name=factory-reset
+check_16_target=test-appliance-factory-reset-host
+check_16_marker=appliance factory reset host: OK

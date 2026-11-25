@@ -2,7 +2,7 @@
 
 [Главная](../README.ru.md) · [English](install.md) · Русский
 
-HFOC OS загружается с образа BIOS или UEFI на машине x86-64. Публичный комплект исходников и образов ещё готовится.
+HFOC OS загружается с образа BIOS или UEFI на машине x86-64. Скачайте общий ISO и `SHA256SUMS.txt` из [выпуска v1.0.0](https://github.com/EdgarMisyukov/hfoc-os-public/releases/tag/v1.0.0). Перед загрузкой сверьте SHA-256 образа с соответствующей строкой файла.
 
 ## Пробный запуск ISO в QEMU
 

@@ -1,0 +1,28 @@
+hfoc_nvme_production_acceptance_version=1
+target_release_id=HFOC-APPLIANCE-V1
+acceptance_class=SOFTWARE_PROOF
+hardware_status=NOT_TESTED
+supported_v1_namespace_count=1
+supported_v1_block_size=512
+gpt_mutation=NONE
+efi_nvram_mutation=NONE
+check_count=3
+
+# ITEM-348 production-profile software evidence.
+check_1_id=NVME_HOST-348
+check_1_category=NVME_HOST
+check_1_name=nvme-host
+check_1_target=test-nvme-host
+check_1_marker=NVMe host tests: ALL OK
+
+check_2_id=NVME_STATE_INTEGRATION-348
+check_2_category=NVME_STATE_INTEGRATION
+check_2_name=nvme-state-integration
+check_2_target=test-nvme-state-integration-host
+check_2_marker=NVMe state integration host tests: ALL OK
+
+check_3_id=PHYSICAL_STORAGE_QEMU-348
+check_3_category=PHYSICAL_STORAGE_QEMU
+check_3_name=physical-storage-qemu
+check_3_target=test-physical-storage-qemu
+check_3_marker=QEMU physical-storage test: OK
